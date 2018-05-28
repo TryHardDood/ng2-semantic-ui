@@ -2,6 +2,7 @@ import { IDatepickerLocaleValues } from "../../../behaviors/localization/interna
 import { format, parse } from "date-fns";
 import * as defaultLocale from "date-fns/locale/en-US";
 
+<<<<<<< HEAD
 interface IDateFnsLocaleValues {
     [name: string]: string[];
 }
@@ -11,6 +12,11 @@ interface IDateFnsHelperOptions {
 }
 
 type DateFnsHelper<U, T> = (value: U, options: IDateFnsHelperOptions) => T;
+=======
+interface IDateFnsLocaleValues { [name:string]:string[]; }
+interface IDateFnsHelperOptions { type:string; }
+type DateFnsHelper<U, T> = (value:U, options:IDateFnsHelperOptions) => T;
+>>>>>>> 4c27b73... move element-closest to polyfills.ts
 type DateFnsWeekStartsOn = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
 interface IDateFnsCustomLocale {
