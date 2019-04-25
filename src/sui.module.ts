@@ -1,11 +1,6 @@
-import { NgModule } from "@angular/core";
-
+import {NgModule} from "@angular/core";
 // Collections
-import {
-    SuiMessageModule,
-    SuiPaginationModule
-} from "./collections/internal";
-
+import {SuiMessageModule, SuiPaginationModule} from "./collections/internal";
 // Modules
 import {
     SuiAccordionModule,
@@ -19,21 +14,15 @@ import {
     SuiProgressModule,
     SuiRatingModule,
     SuiSearchModule,
+    SuiSelectModule,
     SuiSidebarModule,
     SuiTabsModule,
-    SuiSelectModule,
     SuiTransitionModule
 } from "./modules/internal";
-
 // Behaviors
-import {
-    SuiLocalizationModule
-} from "./behaviors/internal";
-
+import {SuiLocalizationModule} from "./behaviors/internal";
 // Misc
-import {
-    SuiUtilityModule
-} from "./misc/internal";
+import {SuiUtilityModule} from "./misc/internal";
 
 @NgModule({
     exports: [

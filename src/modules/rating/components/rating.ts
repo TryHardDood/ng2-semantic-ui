@@ -1,5 +1,5 @@
-import { Component, Directive, Input, Output, EventEmitter, HostBinding, HostListener } from "@angular/core";
-import { ICustomValueAccessorHost, customValueAccessorFactory, CustomValueAccessor } from "../../../misc/util/internal";
+import {Component, Directive, EventEmitter, HostBinding, HostListener, Input, Output} from "@angular/core";
+import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHost} from "../../../misc/util/internal";
 
 @Component({
     selector: "sui-rating",

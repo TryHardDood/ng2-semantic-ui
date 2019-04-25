@@ -1,16 +1,41 @@
 import {
-    Directive, ElementRef, Renderer2, EventEmitter, Output, Input,
-    HostListener, OnChanges, SimpleChanges
+    Directive,
+    ElementRef,
+    EventEmitter,
+    HostListener,
+    Input,
+    OnChanges,
+    Output,
+    Renderer2,
+    SimpleChanges
 } from "@angular/core";
-import { AbstractControl, ValidationErrors } from "@angular/forms";
+import {AbstractControl, ValidationErrors} from "@angular/forms";
 import {
-    ICustomValueAccessorHost, customValueAccessorFactory, CustomValueAccessor,
-    ICustomValidatorHost, customValidatorFactory, CustomValidator, PositioningPlacement, SuiComponentFactory, KeyCode
+    CustomValidator,
+    customValidatorFactory,
+    CustomValueAccessor,
+    customValueAccessorFactory,
+    ICustomValidatorHost,
+    ICustomValueAccessorHost,
+    KeyCode,
+    PositioningPlacement,
+    SuiComponentFactory
 } from "../../../misc/util/internal";
-import { IDatepickerLocaleValues, RecursivePartial, SuiLocalizationService } from "../../../behaviors/localization/internal";
-import { SuiPopupComponentController, PopupAfterOpen, PopupConfig, PopupTrigger } from "../../popup/internal";
-import { SuiDatepicker, DatepickerMode } from "../components/datepicker";
-import { CalendarConfig, YearConfig, MonthConfig, DatetimeConfig, TimeConfig, DateConfig } from "../classes/calendar-config";
+import {
+    IDatepickerLocaleValues,
+    RecursivePartial,
+    SuiLocalizationService
+} from "../../../behaviors/localization/internal";
+import {PopupAfterOpen, PopupConfig, PopupTrigger, SuiPopupComponentController} from "../../popup/internal";
+import {DatepickerMode, SuiDatepicker} from "../components/datepicker";
+import {
+    CalendarConfig,
+    DateConfig,
+    DatetimeConfig,
+    MonthConfig,
+    TimeConfig,
+    YearConfig
+} from "../classes/calendar-config";
 
 @Directive({
     selector: "[suiDatepicker]",

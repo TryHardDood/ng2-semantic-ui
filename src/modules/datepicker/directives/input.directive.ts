@@ -1,14 +1,14 @@
-
-import { Directive, Host, Input, ElementRef, HostBinding, HostListener, Renderer2 } from "@angular/core";
-import { DateUtil, DatePrecision } from "../../../misc/util/internal";
-import { SuiLocalizationService } from "../../../behaviors/localization/internal";
-import { PopupTrigger } from "../../popup/internal";
-import { SuiDatepickerDirective, SuiDatepickerDirectiveValueAccessor } from "./datepicker.directive";
-import { InternalDateParser, DateParser } from "../classes/date-parser";
+import {Directive, ElementRef, Host, HostBinding, HostListener, Input, Renderer2} from "@angular/core";
+import {DateUtil} from "../../../misc/util/internal";
+import {SuiLocalizationService} from "../../../behaviors/localization/internal";
+import {PopupTrigger} from "../../popup/internal";
+import {SuiDatepickerDirective, SuiDatepickerDirectiveValueAccessor} from "./datepicker.directive";
+import {DateParser, InternalDateParser} from "../classes/date-parser";
 import * as bowser from "bowser";
 
 import "../helpers/is-webview";
 import * as isUAWebView from "is-ua-webview";
+
 const isWebView = isUAWebView["default"] || isUAWebView;
 
 @Directive({

@@ -1,5 +1,5 @@
-import { Renderer2, ElementRef, Directive, Input, HostBinding, ChangeDetectorRef } from "@angular/core";
-import { TransitionController } from "../classes/transition-controller";
+import {ChangeDetectorRef, Directive, ElementRef, HostBinding, Input, Renderer2} from "@angular/core";
+import {TransitionController} from "../classes/transition-controller";
 
 @Directive({
     selector: "[suiTransition]",

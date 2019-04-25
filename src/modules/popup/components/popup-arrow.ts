@@ -1,5 +1,5 @@
-import { Component, Input, HostBinding } from "@angular/core";
-import { PositioningPlacement } from "../../../misc/util/internal";
+import {Component, HostBinding, Input} from "@angular/core";
+import {PositioningPlacement} from "../../../misc/util/internal";
 
 @Component({
     selector: "sui-popup-arrow",

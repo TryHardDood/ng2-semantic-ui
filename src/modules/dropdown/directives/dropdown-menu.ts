@@ -1,10 +1,20 @@
 import {
-    Directive, ContentChild, forwardRef, Renderer2, ElementRef, AfterContentInit,
-    ContentChildren, QueryList, Input, HostListener, ChangeDetectorRef, OnDestroy
+    AfterContentInit,
+    ChangeDetectorRef,
+    ContentChild,
+    ContentChildren,
+    Directive,
+    ElementRef,
+    forwardRef,
+    HostListener,
+    Input,
+    OnDestroy,
+    QueryList,
+    Renderer2
 } from "@angular/core";
-import { Transition, SuiTransition, TransitionController, TransitionDirection } from "../../transition/internal";
-import { HandledEvent, IAugmentedElement, KeyCode } from "../../../misc/util/internal";
-import { DropdownService, DropdownAutoCloseType } from "../services/dropdown.service";
+import {SuiTransition, Transition, TransitionController, TransitionDirection} from "../../transition/internal";
+import {HandledEvent, IAugmentedElement, KeyCode} from "../../../misc/util/internal";
+import {DropdownAutoCloseType, DropdownService} from "../services/dropdown.service";
 // Polyfill for IE
 import "element-closest";
 

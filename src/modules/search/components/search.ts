@@ -1,12 +1,21 @@
 import {
-    Component, ViewChild, HostBinding, Input, AfterViewInit, HostListener,
-    EventEmitter, Output, Directive, ElementRef, TemplateRef, Renderer2
+    AfterViewInit,
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    Output,
+    Renderer2,
+    TemplateRef,
+    ViewChild
 } from "@angular/core";
-import { Util, ITemplateRefContext, IFocusEvent } from "../../../misc/util/internal";
-import { DropdownService, SuiDropdownMenu } from "../../dropdown/internal";
-import { ISearchLocaleValues, RecursivePartial, SuiLocalizationService } from "../../../behaviors/localization/internal";
-import { SearchService } from "../services/search.service";
-import { LookupFn, FilterFn } from "../helpers/lookup-fn";
+import {IFocusEvent, ITemplateRefContext, Util} from "../../../misc/util/internal";
+import {DropdownService, SuiDropdownMenu} from "../../dropdown/internal";
+import {ISearchLocaleValues, RecursivePartial, SuiLocalizationService} from "../../../behaviors/localization/internal";
+import {SearchService} from "../services/search.service";
+import {FilterFn, LookupFn} from "../helpers/lookup-fn";
 
 export interface IResultContext<T> extends ITemplateRefContext<T> {
     query:string;

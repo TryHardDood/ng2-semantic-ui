@@ -1,7 +1,7 @@
-import { DatePrecision, DateUtil, Util } from "../../../misc/util/internal";
-import { CalendarItem } from "../directives/calendar-item";
-import { CalendarService } from "./calendar.service";
-import { DateComparer } from "../classes/date-comparer";
+import {DatePrecision, DateUtil, Util} from "../../../misc/util/internal";
+import {CalendarItem} from "../directives/calendar-item";
+import {CalendarService} from "./calendar.service";
+import {DateComparer} from "../classes/date-comparer";
 
 export class CalendarRange {
     public start:Date;

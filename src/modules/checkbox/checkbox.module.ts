@@ -1,9 +1,9 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-import { SuiCheckbox, SuiCheckboxValueAccessor } from "./components/checkbox";
-import { SuiRadio, SuiRadioValueAccessor } from "./components/radio";
-import { SuiRadioManager } from "./directives/radio-manager";
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
+import {SuiCheckbox, SuiCheckboxValueAccessor} from "./components/checkbox";
+import {SuiRadio, SuiRadioValueAccessor} from "./components/radio";
+import {SuiRadioManager} from "./directives/radio-manager";
 
 @NgModule({
     imports: [

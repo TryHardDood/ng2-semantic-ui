@@ -1,9 +1,9 @@
-import { Component, OnInit, DebugElement, ViewChild } from "@angular/core";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { By } from "@angular/platform-browser";
+import {Component, DebugElement} from "@angular/core";
+import {ComponentFixture, TestBed} from "@angular/core/testing";
+import {By} from "@angular/platform-browser";
 
-import { SuiPagination } from "./pagination";
-import { SuiPaginationModule } from "../pagination.module";
+import {SuiPagination} from "./pagination";
+import {SuiPaginationModule} from "../pagination.module";
 
 /**
  * TestHostComponent

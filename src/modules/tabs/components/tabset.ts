@@ -1,7 +1,7 @@
-import { Component, ContentChildren, QueryList, AfterContentInit } from "@angular/core";
-import { SuiTabHeader } from "../directives/tab-header";
-import { SuiTabContent } from "../directives/tab-content";
-import { Tab } from "../classes/tab";
+import {AfterContentInit, Component, ContentChildren, QueryList} from "@angular/core";
+import {SuiTabHeader} from "../directives/tab-header";
+import {SuiTabContent} from "../directives/tab-content";
+import {Tab} from "../classes/tab";
 
 @Component({
     selector: "sui-tabset",

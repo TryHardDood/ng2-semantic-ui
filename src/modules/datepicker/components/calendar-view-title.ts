@@ -1,5 +1,5 @@
-import { Component, Input, EventEmitter, Output } from "@angular/core";
-import { CalendarRangeService } from "../services/calendar-range.service";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {CalendarRangeService} from "../services/calendar-range.service";
 
 @Component({
     selector: "sui-calendar-view-title",

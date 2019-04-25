@@ -1,4 +1,4 @@
-import { EventEmitter } from "@angular/core";
+import {EventEmitter} from "@angular/core";
 
 export type SidebarTransition = "overlay" | "push" | "scale down" | "uncover" | "slide along" | "slide out";
 

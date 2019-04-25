@@ -1,8 +1,16 @@
-import { Component, ViewChild, ViewContainerRef, ElementRef, EventEmitter, HostListener, HostBinding } from "@angular/core";
-import { PositioningService, IDynamicClasses } from "../../../misc/util/internal";
-import { TransitionController, TransitionDirection, Transition } from "../../transition/internal";
-import { IPopup } from "../classes/popup-controller";
-import { TemplatePopupConfig } from "../classes/popup-template-controller";
+import {
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    ViewChild,
+    ViewContainerRef
+} from "@angular/core";
+import {IDynamicClasses, PositioningService} from "../../../misc/util/internal";
+import {Transition, TransitionController, TransitionDirection} from "../../transition/internal";
+import {IPopup} from "../classes/popup-controller";
+import {TemplatePopupConfig} from "../classes/popup-template-controller";
 
 @Component({
     selector: "sui-popup",

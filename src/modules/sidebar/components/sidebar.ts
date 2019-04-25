@@ -1,5 +1,5 @@
-import { Component, HostBinding, Input, Output, Renderer2, ElementRef, EventEmitter } from "@angular/core";
-import { SidebarService, SidebarTransition, SidebarDirection } from "../services/sidebar.service";
+import {Component, ElementRef, EventEmitter, HostBinding, Input, Output, Renderer2} from "@angular/core";
+import {SidebarDirection, SidebarService, SidebarTransition} from "../services/sidebar.service";
 
 @Component({
     selector: "sui-sidebar",

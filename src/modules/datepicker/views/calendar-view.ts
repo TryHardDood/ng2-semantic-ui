@@ -1,8 +1,8 @@
-import { Input, QueryList, ViewChildren, AfterViewInit, HostListener, Renderer2, OnDestroy } from "@angular/core";
-import { KeyCode } from "../../../misc/util/internal";
-import { CalendarItem, SuiCalendarItem } from "../directives/calendar-item";
-import { CalendarService } from "../services/calendar.service";
-import { CalendarRangeService } from "../services/calendar-range.service";
+import {AfterViewInit, Input, OnDestroy, QueryList, Renderer2, ViewChildren} from "@angular/core";
+import {KeyCode} from "../../../misc/util/internal";
+import {CalendarItem, SuiCalendarItem} from "../directives/calendar-item";
+import {CalendarService} from "../services/calendar.service";
+import {CalendarRangeService} from "../services/calendar-range.service";
 
 export enum CalendarViewType {
     Year = 0,

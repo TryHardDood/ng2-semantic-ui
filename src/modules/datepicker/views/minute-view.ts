@@ -1,10 +1,10 @@
-import { Component, Renderer2 } from "@angular/core";
-import { Util, DateUtil, DatePrecision } from "../../../misc/util/internal";
-import { CalendarView, CalendarViewType } from "./calendar-view";
-import { CalendarItem } from "../directives/calendar-item";
-import { CalendarMode } from "../services/calendar.service";
-import { CalendarRangeService } from "../services/calendar-range.service";
-import { DateParser } from "../classes/date-parser";
+import {Component, Renderer2} from "@angular/core";
+import {DatePrecision, DateUtil, Util} from "../../../misc/util/internal";
+import {CalendarView, CalendarViewType} from "./calendar-view";
+import {CalendarItem} from "../directives/calendar-item";
+import {CalendarMode} from "../services/calendar.service";
+import {CalendarRangeService} from "../services/calendar-range.service";
+import {DateParser} from "../classes/date-parser";
 
 export class CalendarRangeMinuteService extends CalendarRangeService {
     public calcStart(start:Date):Date {

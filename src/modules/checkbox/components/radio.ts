@@ -1,11 +1,15 @@
 import {
-    Component, Directive, Input, Output, HostListener, HostBinding,
-    EventEmitter, ViewChild, ElementRef, ContentChildren, AfterContentInit, QueryList
+    Component,
+    Directive,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    Output,
+    ViewChild
 } from "@angular/core";
-import {
-    ICustomValueAccessorHost, customValueAccessorFactory, CustomValueAccessor,
-    Util
-} from "../../../misc/util/internal";
+import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHost} from "../../../misc/util/internal";
 
 @Component({
     selector: "sui-radio-button",

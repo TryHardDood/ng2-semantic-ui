@@ -1,5 +1,5 @@
-import { Component, HostBinding, Renderer2, ElementRef, ChangeDetectorRef } from "@angular/core";
-import { SuiDimmer } from "../../dimmer/internal";
+import {ChangeDetectorRef, Component, ElementRef, HostBinding, Renderer2} from "@angular/core";
+import {SuiDimmer} from "../../dimmer/internal";
 
 @Component({
     selector: "sui-modal-dimmer",

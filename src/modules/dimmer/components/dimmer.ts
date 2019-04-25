@@ -1,8 +1,15 @@
 import {
-    Component, Input, Output, HostBinding, HostListener, EventEmitter, Renderer2,
-    ElementRef, ChangeDetectorRef
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    Output,
+    Renderer2
 } from "@angular/core";
-import { TransitionController, SuiTransition, TransitionDirection, Transition } from "../../transition/internal";
+import {SuiTransition, Transition, TransitionController, TransitionDirection} from "../../transition/internal";
 
 @Component({
     selector: "sui-dimmer",

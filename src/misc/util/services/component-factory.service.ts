@@ -1,6 +1,14 @@
 import {
-    Injectable, ApplicationRef, ComponentFactoryResolver, Injector, ComponentRef,
-    ReflectiveInjector, Provider, Type, ViewContainerRef, TemplateRef
+    ApplicationRef,
+    ComponentFactoryResolver,
+    ComponentRef,
+    Injectable,
+    Injector,
+    Provider,
+    ReflectiveInjector,
+    TemplateRef,
+    Type,
+    ViewContainerRef
 } from "@angular/core";
 
 export interface IImplicitContext<T> {

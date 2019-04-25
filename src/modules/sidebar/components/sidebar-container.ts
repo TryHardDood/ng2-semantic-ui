@@ -1,7 +1,7 @@
-import { Component, AfterContentInit, HostBinding, ContentChild } from "@angular/core";
-import { SidebarService } from "../services/sidebar.service";
-import { SuiSidebar } from "./sidebar";
-import { SuiSidebarSibling } from "./sidebar-sibling";
+import {AfterContentInit, Component, ContentChild, HostBinding} from "@angular/core";
+import {SidebarService} from "../services/sidebar.service";
+import {SuiSidebar} from "./sidebar";
+import {SuiSidebarSibling} from "./sidebar-sibling";
 
 @Component({
     selector: "sui-sidebar-container",

@@ -1,9 +1,18 @@
 import {
-    Component, Input, HostBinding, HostListener, EventEmitter, ViewContainerRef,
-    ViewChild, Renderer2, ElementRef, Output, ChangeDetectorRef
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    Output,
+    Renderer2,
+    ViewChild,
+    ViewContainerRef
 } from "@angular/core";
-import { SuiDropdownMenuItem } from "../../dropdown/internal";
-import { HandledEvent } from "../../../misc/util/internal";
+import {SuiDropdownMenuItem} from "../../dropdown/internal";
+import {HandledEvent} from "../../../misc/util/internal";
 
 @Component({
     selector: "sui-select-option",

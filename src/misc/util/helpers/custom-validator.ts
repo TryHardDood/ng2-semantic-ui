@@ -1,5 +1,5 @@
-import { NG_VALIDATORS, AbstractControl, ValidationErrors, Validator } from "@angular/forms";
-import { forwardRef, InjectionToken, Type } from "@angular/core";
+import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from "@angular/forms";
+import {forwardRef, InjectionToken, Type} from "@angular/core";
 
 export interface ICustomValidatorHost {
     validate(c:AbstractControl):ValidationErrors | null;

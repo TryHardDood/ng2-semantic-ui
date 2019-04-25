@@ -1,5 +1,5 @@
-import { ElementRef } from "@angular/core";
-import Popper, { Modifiers, PopperOptions, Placement, Data } from "popper.js";
+import {ElementRef} from "@angular/core";
+import Popper, {Data, Modifiers, Placement, PopperOptions} from "popper.js";
 
 type PopperModifiers = Modifiers & {
     computeStyle?:{

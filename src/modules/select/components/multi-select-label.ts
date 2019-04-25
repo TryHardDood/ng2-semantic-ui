@@ -1,10 +1,20 @@
 import {
-    Component, Input, HostBinding, HostListener, EventEmitter, ViewContainerRef,
-    ViewChild, Renderer2, ElementRef, Output, ChangeDetectorRef, TemplateRef
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    Output,
+    Renderer2,
+    TemplateRef,
+    ViewChild,
+    ViewContainerRef
 } from "@angular/core";
-import { SuiTransition, TransitionController, Transition, TransitionDirection } from "../../transition/internal";
-import { HandledEvent, SuiComponentFactory } from "../../../misc/util/internal";
-import { IOptionContext } from "../classes/select-base";
+import {SuiTransition, Transition, TransitionController, TransitionDirection} from "../../transition/internal";
+import {HandledEvent, SuiComponentFactory} from "../../../misc/util/internal";
+import {IOptionContext} from "../classes/select-base";
 
 // See https://github.com/Microsoft/TypeScript/issues/13449.
 const templateRef = TemplateRef;

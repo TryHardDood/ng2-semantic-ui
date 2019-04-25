@@ -1,6 +1,4 @@
-import { TemplateRef } from "@angular/core";
-import { ITemplateRefContext, PositioningPlacement } from "../../../misc/util/internal";
-import { IPopup } from "./popup-controller";
+import {PositioningPlacement} from "../../../misc/util/internal";
 
 export type PopupTrigger = "hover" | "click" | "outsideClick" | "focus" | "manual";
 export type PopupSize = "mini" | "tiny" | "small" | "large" | "huge";

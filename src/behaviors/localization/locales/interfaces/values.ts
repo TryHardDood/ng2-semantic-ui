@@ -1,7 +1,7 @@
-import { RecursivePartial } from "./partial";
-import { IDatepickerLocaleValues, IDatepickerFormatsLocaleValues } from "./datepicker-values";
-import { ISearchLocaleValues } from "./search-values";
-import { ISelectLocaleValues, ISearchTailoredLocaleValues } from "./select-values";
+import {RecursivePartial} from "./partial";
+import {IDatepickerFormatsLocaleValues, IDatepickerLocaleValues} from "./datepicker-values";
+import {ISearchLocaleValues} from "./search-values";
+import {ISearchTailoredLocaleValues, ISelectLocaleValues} from "./select-values";
 
 export interface ILocaleValues {
     datepicker:IDatepickerLocaleValues;

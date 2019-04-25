@@ -1,7 +1,7 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
 
-import { SuiPagination } from "./components/pagination";
+import {SuiPagination} from "./components/pagination";
 
 @NgModule({
     imports: [CommonModule],

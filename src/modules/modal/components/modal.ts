@@ -1,11 +1,20 @@
 import {
-    Component, Input, OnInit, ViewChild, ElementRef, Renderer2,
-    EventEmitter, Output, HostListener, ViewContainerRef, AfterViewInit
+    AfterViewInit,
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostListener,
+    Input,
+    OnInit,
+    Output,
+    Renderer2,
+    ViewChild,
+    ViewContainerRef
 } from "@angular/core";
-import { Util, IDynamicClasses, KeyCode, SuiComponentFactory } from "../../../misc/util/internal";
-import { TransitionController, Transition, TransitionDirection } from "../../transition/internal";
-import { ModalControls, ModalResult } from "../classes/modal-controls";
-import { ModalConfig, ModalSize } from "../classes/modal-config";
+import {IDynamicClasses, KeyCode, SuiComponentFactory, Util} from "../../../misc/util/internal";
+import {Transition, TransitionController, TransitionDirection} from "../../transition/internal";
+import {ModalControls, ModalResult} from "../classes/modal-controls";
+import {ModalConfig, ModalSize} from "../classes/modal-config";
 
 @Component({
     selector: "sui-modal",

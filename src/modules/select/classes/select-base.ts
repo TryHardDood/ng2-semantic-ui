@@ -1,14 +1,26 @@
 import {
-    ViewChild, HostBinding, ElementRef, HostListener, Input, ContentChildren, QueryList,
-    AfterContentInit, TemplateRef, ViewContainerRef, ContentChild, EventEmitter, Output, OnDestroy
+    AfterContentInit,
+    ContentChild,
+    ContentChildren,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    OnDestroy,
+    Output,
+    QueryList,
+    TemplateRef,
+    ViewChild,
+    ViewContainerRef
 } from "@angular/core";
-import { Subscription } from "rxjs";
-import { DropdownService, SuiDropdownMenu } from "../../dropdown/internal";
-import { SearchService, LookupFn, FilterFn } from "../../search/internal";
-import { Util, ITemplateRefContext, HandledEvent, KeyCode, IFocusEvent } from "../../../misc/util/internal";
-import { ISelectLocaleValues, RecursivePartial, SuiLocalizationService } from "../../../behaviors/localization/internal";
-import { SuiSelectOption } from "../components/select-option";
-import { SuiSelectSearch } from "../directives/select-search";
+import {Subscription} from "rxjs";
+import {DropdownService, SuiDropdownMenu} from "../../dropdown/internal";
+import {FilterFn, LookupFn, SearchService} from "../../search/internal";
+import {HandledEvent, IFocusEvent, ITemplateRefContext, KeyCode, Util} from "../../../misc/util/internal";
+import {ISelectLocaleValues, RecursivePartial, SuiLocalizationService} from "../../../behaviors/localization/internal";
+import {SuiSelectOption} from "../components/select-option";
+import {SuiSelectSearch} from "../directives/select-search";
 
 export interface IOptionContext<T> extends ITemplateRefContext<T> {
     query?:string;

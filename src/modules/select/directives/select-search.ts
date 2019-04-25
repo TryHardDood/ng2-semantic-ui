@@ -1,4 +1,4 @@
-import { Directive, Input, EventEmitter, Renderer2, ElementRef, HostListener, HostBinding } from "@angular/core";
+import {Directive, ElementRef, EventEmitter, HostBinding, HostListener, Renderer2} from "@angular/core";
 
 @Directive({
     selector: "input[suiSelectSearch]"

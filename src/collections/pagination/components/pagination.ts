@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnChanges, EventEmitter, HostBinding } from "@angular/core";
+import {Component, EventEmitter, HostBinding, Input, OnChanges, Output} from "@angular/core";
 
 @Component({
     selector: "sui-pagination",

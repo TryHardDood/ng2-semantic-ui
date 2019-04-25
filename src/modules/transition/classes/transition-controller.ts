@@ -1,5 +1,5 @@
-import { Renderer2, ElementRef, ChangeDetectorRef } from "@angular/core";
-import { Transition, TransitionDirection } from "./transition";
+import {ChangeDetectorRef, ElementRef, Renderer2} from "@angular/core";
+import {Transition, TransitionDirection} from "./transition";
 
 export class TransitionController {
     private _renderer:Renderer2;

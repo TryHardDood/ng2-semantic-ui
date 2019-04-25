@@ -1,4 +1,4 @@
-import { HostBinding, Input, Directive, EventEmitter, HostListener, Output } from "@angular/core";
+import {Directive, EventEmitter, HostBinding, HostListener, Input, Output} from "@angular/core";
 
 @Directive({
     selector: "[suiTabHeader]"

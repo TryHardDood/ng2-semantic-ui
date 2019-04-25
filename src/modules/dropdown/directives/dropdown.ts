@@ -1,10 +1,19 @@
 import {
-    Directive, Input, HostBinding, EventEmitter, Output, AfterContentInit, ContentChild,
-    ElementRef, HostListener, QueryList, ContentChildren
+    AfterContentInit,
+    ContentChild,
+    ContentChildren,
+    Directive,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    Output,
+    QueryList
 } from "@angular/core";
-import { HandledEvent, KeyCode, IFocusEvent } from "../../../misc/util/internal";
-import { DropdownService, DropdownAutoCloseType } from "../services/dropdown.service";
-import { SuiDropdownMenu } from "./dropdown-menu";
+import {HandledEvent, IFocusEvent, KeyCode} from "../../../misc/util/internal";
+import {DropdownAutoCloseType, DropdownService} from "../services/dropdown.service";
+import {SuiDropdownMenu} from "./dropdown-menu";
 
 @Directive({
     selector: "[suiDropdown]"

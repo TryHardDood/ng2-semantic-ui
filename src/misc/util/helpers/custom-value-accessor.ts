@@ -1,5 +1,5 @@
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
-import { forwardRef, InjectionToken, Type } from "@angular/core";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {forwardRef, InjectionToken, Type} from "@angular/core";
 
 export interface ICustomValueAccessorHost<T> {
     writeValue(value:T):void;

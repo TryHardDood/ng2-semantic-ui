@@ -1,6 +1,13 @@
-import { CalendarMode } from "../services/calendar.service";
-import { CalendarMappings, DatetimeMappings, DateMappings, TimeMappings, MonthMappings, YearMappings } from "./calendar-mappings";
-import { DatePrecision, DateUtil } from "../../../misc/util/internal";
+import {CalendarMode} from "../services/calendar.service";
+import {
+    CalendarMappings,
+    DateMappings,
+    DatetimeMappings,
+    MonthMappings,
+    TimeMappings,
+    YearMappings
+} from "./calendar-mappings";
+import {DatePrecision, DateUtil} from "../../../misc/util/internal";
 
 export abstract class CalendarConfig {
     public mode:CalendarMode;

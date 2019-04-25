@@ -8,5 +8,6 @@ export {
     PopupTrigger
 } from "./internal";
 
-import { PositioningPlacement } from "../../misc/util/internal";
+import {PositioningPlacement} from "../../misc/util/internal";
+
 export { PositioningPlacement as PopupPlacement };

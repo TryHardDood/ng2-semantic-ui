@@ -1,9 +1,9 @@
-import { Component, Renderer2 } from "@angular/core";
-import { DateUtil, DatePrecision } from "../../../misc/util/internal";
-import { CalendarItem } from "../directives/calendar-item";
-import { CalendarView, CalendarViewType } from "./calendar-view";
-import { CalendarRangeService } from "../services/calendar-range.service";
-import { DateParser } from "../classes/date-parser";
+import {Component, Renderer2} from "@angular/core";
+import {DatePrecision, DateUtil} from "../../../misc/util/internal";
+import {CalendarItem} from "../directives/calendar-item";
+import {CalendarView, CalendarViewType} from "./calendar-view";
+import {CalendarRangeService} from "../services/calendar-range.service";
+import {DateParser} from "../classes/date-parser";
 
 export class CalendarRangeDateService extends CalendarRangeService {
     public calcStart(start:Date):Date {

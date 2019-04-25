@@ -1,8 +1,8 @@
-import { ComponentRef, ElementRef, HostListener, OnDestroy, Renderer2 } from "@angular/core";
-import { SuiComponentFactory } from "../../../misc/util/internal";
-import { PopupConfig, PopupTrigger, IPopupConfig } from "./popup-config";
-import { SuiPopup } from "../components/popup";
-import { IPopupLifecycle } from "./popup-lifecycle";
+import {ComponentRef, ElementRef, HostListener, OnDestroy, Renderer2} from "@angular/core";
+import {SuiComponentFactory} from "../../../misc/util/internal";
+import {IPopupConfig, PopupConfig, PopupTrigger} from "./popup-config";
+import {SuiPopup} from "../components/popup";
+import {IPopupLifecycle} from "./popup-lifecycle";
 
 export interface IPopup {
     open():void;

@@ -1,5 +1,5 @@
-import { IDatepickerLocaleValues } from "../../../behaviors/localization/internal";
-import { format, parse } from "date-fns";
+import {IDatepickerLocaleValues} from "../../../behaviors/localization/internal";
+import {format, parse} from "date-fns";
 import * as defaultLocale from "date-fns/locale/en-US";
 
 interface IDateFnsLocaleValues { [name:string]:string[]; }

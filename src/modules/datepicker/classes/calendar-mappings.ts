@@ -1,4 +1,4 @@
-import { CalendarViewType } from "../views/calendar-view";
+import {CalendarViewType} from "../views/calendar-view";
 
 export type CalendarMapping<T = CalendarViewType> = Map<CalendarViewType, T>;
 

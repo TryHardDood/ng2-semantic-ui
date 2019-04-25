@@ -1,5 +1,5 @@
-import { Component, Input, HostBinding, HostListener, ElementRef, Renderer2 } from "@angular/core";
-import { SidebarService, SidebarTransition } from "../services/sidebar.service";
+import {Component, ElementRef, HostBinding, HostListener, Input, Renderer2} from "@angular/core";
+import {SidebarService, SidebarTransition} from "../services/sidebar.service";
 
 @Component({
     selector: "sui-sidebar-sibling",

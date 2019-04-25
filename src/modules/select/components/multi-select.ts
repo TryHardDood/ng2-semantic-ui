@@ -1,8 +1,13 @@
-import { Component, HostBinding, ElementRef, EventEmitter, Output, Input, Directive } from "@angular/core";
-import { ICustomValueAccessorHost, KeyCode, customValueAccessorFactory, CustomValueAccessor } from "../../../misc/util/internal";
-import { SuiLocalizationService } from "../../../behaviors/localization/internal";
-import { SuiSelectBase } from "../classes/select-base";
-import { SuiSelectOption } from "./select-option";
+import {Component, Directive, ElementRef, EventEmitter, HostBinding, Input, Output} from "@angular/core";
+import {
+    CustomValueAccessor,
+    customValueAccessorFactory,
+    ICustomValueAccessorHost,
+    KeyCode
+} from "../../../misc/util/internal";
+import {SuiLocalizationService} from "../../../behaviors/localization/internal";
+import {SuiSelectBase} from "../classes/select-base";
+import {SuiSelectOption} from "./select-option";
 
 @Component({
     selector: "sui-multi-select",

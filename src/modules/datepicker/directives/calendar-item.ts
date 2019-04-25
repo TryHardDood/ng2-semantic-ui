@@ -1,5 +1,4 @@
-
-import { Directive, HostBinding, HostListener, Input, EventEmitter, ChangeDetectorRef } from "@angular/core";
+import {ChangeDetectorRef, Directive, EventEmitter, HostBinding, HostListener, Input} from "@angular/core";
 
 export class CalendarItem {
     public date:Date;
