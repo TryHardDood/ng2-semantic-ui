@@ -3,15 +3,7 @@ import { ICustomValueAccessorHost, customValueAccessorFactory, CustomValueAccess
 
 @Component({
     selector: "sui-rating",
-    template: `
-<i class="icon"
-   *ngFor="let icon of icons; let i = index"
-   (mouseover)="onMouseover(i)"
-   (click)="onClick(i)"
-   [class.selected]="hoveredIndex >= i && !isReadonly"
-   [class.active]="value > i">
-</i>
-`,
+    template: `<i *ngFor="let icon of icons; let i = index" class="icon {{type}}" (mouseover)="onMouseover(i)" (click)="onClick(i)" [class.selected]="hoveredIndex >= i && !isReadonly" [class.active]="value > i"></i>`,
     styles: [`
 :host.read-only .icon {
     cursor: auto
@@ -21,62 +13,74 @@ import { ICustomValueAccessorHost, customValueAccessorFactory, CustomValueAccess
 export class SuiRating implements ICustomValueAccessorHost<number> {
     @HostBinding("class.ui")
     @HostBinding("class.rating")
-    public readonly hasClasses:boolean;
+    public readonly hasClasses: boolean;
 
-    public value:number;
+    public value: number;
 
     @Output()
-    public valueChange:EventEmitter<number>;
+    public valueChange: EventEmitter<number>;
 
-    private _maximum:number;
+    private _type: string;
 
     @Input()
-    public get maximum():number {
+    public get type(): string {
+        return this._type;
+    }
+
+    public set type(value: string) {
+        this._type = value;
+    }
+
+    private _maximum: number;
+
+    @Input()
+    public get maximum(): number {
         return this._maximum;
     }
 
-    public set maximum(value:number) {
+    public set maximum(value: number) {
         this._maximum = +value;
     }
 
     @HostBinding("class.read-only")
     @Input()
-    public isReadonly:boolean;
+    public isReadonly: boolean;
 
-    public get icons():undefined[] {
+    public get icons(): undefined[] {
         // tslint:disable-next-line:prefer-literal
         return new Array(this.maximum);
     }
 
-    public hoveredIndex:number = -1;
+    public hoveredIndex: number = -1;
 
     constructor() {
         this.value = 0;
         this.valueChange = new EventEmitter<number>();
 
+        this.type = 'star';
         this.maximum = 5;
         this.isReadonly = false;
 
         this.hasClasses = true;
     }
 
-    public onClick(i:number):void {
+    public onClick(i: number): void {
         if (!this.isReadonly) {
             this.value = i + 1;
             this.valueChange.emit(this.value);
         }
     }
 
-    public onMouseover(i:number):void {
+    public onMouseover(i: number): void {
         this.hoveredIndex = i;
     }
 
     @HostListener("mouseout")
-    public onMouseout():void {
+    public onMouseout(): void {
         this.hoveredIndex = -1;
     }
 
-    public writeValue(value:number):void {
+    public writeValue(value: number): void {
         this.value = value;
     }
 }
@@ -87,7 +91,7 @@ export class SuiRating implements ICustomValueAccessorHost<number> {
     providers: [customValueAccessorFactory(SuiRatingValueAccessor)]
 })
 export class SuiRatingValueAccessor extends CustomValueAccessor<number, SuiRating> {
-    constructor(host:SuiRating) {
+    constructor(host: SuiRating) {
         super(host);
     }
 }
