@@ -26,7 +26,7 @@
   </a>
 </p>
 
-Semantic UI Angular Integrations, written in pure Angular - **no JQuery required**.
+Fomantic UI Angular Integrations, written in pure Angular - **no JQuery required**.
 
 ## Introduction
 
@@ -41,7 +41,7 @@ See the [Documentation](https://tryharddood.github.io/ngx-fomantic-ui) for insta
 ## Dependencies
 
 * [Angular](https://angular.io) (^7.0.0)
-* [Semantic UI CSS](http://semantic-ui.com/) (^2.7.4) (jQuery is **not** required)
+* [Fomantic UI CSS](http://fomantic-ui.com/) (^2.7.4) (jQuery is **not** required)
 
 ## Component Support
 
@@ -100,4 +100,4 @@ $ npm run test
 
 ## License
 
-MIT © [Edward Carroll](https://github.com/tryharddood)
+MIT © [Edward Carroll](https://github.com/edcarroll)
