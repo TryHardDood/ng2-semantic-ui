@@ -23,7 +23,7 @@ const exampleVariationsTemplate = `
         </h2>
     </sui-dimmer>
     <sui-dimmer class="inverted" [(isDimmed)]="segmentDimmed">
-        <div class="ui text loader">Enables loading screens!</div>
+        <div class="ui text loader" style="display:block;">Enables loading screens!</div>
     </sui-dimmer>
     <p>Page dimmers and inverted dimmers are possible!</p>
     <button class="ui primary button" (click)="pageDimmed = !pageDimmed">Dim Page</button>
