@@ -1,4 +1,4 @@
-Please read https://github.com/edcarroll/ngx-fomantic-ui/blob/master/CONTRIBUTING.md and search
+Please read https://github.com/tryharddood/ngx-fomantic-ui/blob/master/CONTRIBUTING.md and search
 existing issues (both open and closed) prior to opening any new issue and ensure you follow the instructions therein.
 
 ### Bug description:

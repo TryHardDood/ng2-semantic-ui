@@ -1,13 +1,13 @@
 <!-- Logo -->
 <p align="center">
-  <a href="https://edcarroll.github.io/ngx-fomantic-ui/">
-    <img height="128" width="238" src="https://raw.githubusercontent.com/edcarroll/ngx-fomantic-ui/master/demo/src/assets/logo.png">
+  <a href="https://tryharddood.github.io/ngx-fomantic-ui/">
+    <img height="128" width="238" src="https://raw.githubusercontent.com/tryharddood/ngx-fomantic-ui/master/demo/src/assets/logo.png">
   </a>
 </p>
 
 <!-- Name -->
 <h1 align="center">
-  <a href="https://edcarroll.github.io/ngx-fomantic-ui">ngx-fomantic-ui</a>
+  <a href="https://tryharddood.github.io/ngx-fomantic-ui">ngx-fomantic-ui</a>
 </h1>
 
 <!-- Badges -->
@@ -15,8 +15,8 @@
   <a href="https://gitter.im/ngx-fomantic-ui/Lobby">
     <img alt="Gitter" src="https://img.shields.io/gitter/room/ngx-fomantic-ui/Lobby.js.svg?style=flat-square" />
   </a>
-  <a href="https://travis-ci.org/edcarroll/ngx-fomantic-ui">
-    <img alt="Travis CI" src="https://img.shields.io/travis/edcarroll/ngx-fomantic-ui.svg?style=flat-square" />
+  <a href="https://travis-ci.org/tryharddood/ngx-fomantic-ui">
+    <img alt="Travis CI" src="https://img.shields.io/travis/tryharddood/ngx-fomantic-ui.svg?style=flat-square" />
   </a>
   <a href="https://www.npmjs.com/package/ngx-fomantic-ui">
     <img alt="npm" src="https://img.shields.io/npm/v/ngx-fomantic-ui.svg?style=flat-square" />
@@ -36,7 +36,7 @@ Note that only Semantic UI elements that use jQuery are recreated here - those w
 
 ## Installation & Usage
 
-See the [Documentation](https://edcarroll.github.io/ngx-fomantic-ui) for installation instructions and extensive examples.
+See the [Documentation](https://tryharddood.github.io/ngx-fomantic-ui) for installation instructions and extensive examples.
 
 ## Dependencies
 
@@ -75,7 +75,7 @@ See the [Documentation](https://edcarroll.github.io/ngx-fomantic-ui) for install
 
 ## Want to help?
 
-Want to file a bug, contribute some code, or improve documentation? Great! Please read the [contributing guidelines](https://github.com/edcarroll/ngx-fomantic-ui/blob/master/CONTRIBUTING.md) to get going.
+Want to file a bug, contribute some code, or improve documentation? Great! Please read the [contributing guidelines](https://github.com/tryharddood/ngx-fomantic-ui/blob/master/CONTRIBUTING.md) to get going.
 
 ## Development
 
@@ -100,4 +100,4 @@ $ npm run test
 
 ## License
 
-MIT © [Edward Carroll](https://github.com/edcarroll)
+MIT © [Edward Carroll](https://github.com/tryharddood)

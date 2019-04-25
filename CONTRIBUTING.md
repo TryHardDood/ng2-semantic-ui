@@ -11,7 +11,7 @@ Your contribution will be greatly appreciated, and will help ngx-fomantic-ui get
 
 ## Code of Conduct
 
-Please read and follow the [Code of Conduct](https://github.com/edcarroll/ngx-fomantic-ui/blob/master/CODE_OF_CONDUCT.md).
+Please read and follow the [Code of Conduct](https://github.com/tryharddood/ngx-fomantic-ui/blob/master/CODE_OF_CONDUCT.md).
 
 ## Bug, Question or Problem?
 
@@ -46,13 +46,13 @@ Ideally all issues are fixed as soon as possible, but before that can be done th
 
 A minimal reproduce scenario using [http://plunkr.co](http://plunkr.co) allows quick confirmation of a bug (or coding problem) and also confirms that the right problem is being fixed. Issues filed that do not include this (or a standalone git repository demonstrating the problem) won't be looked at until they do.
 
-You can file new issues by filling out the [issue form](https://github.com/edcarroll/ngx-fomantic-ui/issues/new).
+You can file new issues by filling out the [issue form](https://github.com/tryharddood/ngx-fomantic-ui/issues/new).
 
 ### Submitting a Pull Request
 
 Before submitting a Pull Request (PR) consider the following guidelines:
 
-* Search the Github [pull requests](https://github.com/edcarroll/ngx-fomantic-ui/pulls) for an open or closed PR relating to your submission (to avoid duplicating effort).
+* Search the Github [pull requests](https://github.com/tryharddood/ngx-fomantic-ui/pulls) for an open or closed PR relating to your submission (to avoid duplicating effort).
 
 * Fork a copy of the repository to your own Github account - [see Github guide](https://help.github.com/articles/working-with-forks/)
 
