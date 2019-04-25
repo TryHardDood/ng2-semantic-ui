@@ -1,4 +1,4 @@
-import { Component, HostBinding, Output, EventEmitter, HostListener, isDevMode } from "@angular/core";
+import {Component, EventEmitter, HostListener, isDevMode, Output} from "@angular/core";
 // Polyfill for IE
 import "element-closest";
 

@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { ApiDefinition } from "../../../components/api/api.component";
+import {Component, OnInit} from "@angular/core";
+import {ApiDefinition} from "../../../components/api/api.component";
 
 const exampleStandardTemplate = `
 <div class="ui segments">

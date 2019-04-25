@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { ApiDefinition } from "../../../components/api/api.component";
+import {Component} from "@angular/core";
+import {ApiDefinition} from "../../../components/api/api.component";
 
 const exampleStandardTemplate = `
 <sui-message class="success">
@@ -87,7 +87,7 @@ export class MessagePage {
 `;
 
     public manualDismissCode:string = `
-import {IMessage} from "ng2-semantic-ui";
+import {IMessage} from "ngx-fomantic-ui";
 
 @Component({})
 export class MyComponent {

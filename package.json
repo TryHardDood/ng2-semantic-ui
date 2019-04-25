@@ -4,12 +4,12 @@
   "description": "Angular Fomantic UI Components",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tryharddood/ng2-semantic-ui/tree/master"
+    "url": "https://github.com/tryharddood/ngx-fomantic-ui/tree/master"
   },
   "bugs": {
-    "url": "https://github.com/tryharddood/ng2-semantic-ui/tree/master/issues"
+    "url": "https://github.com/tryharddood/ngx-fomantic-ui/tree/master/issues"
   },
-  "author": "https://github.com/tryharddood/ng2-semantic-ui/graphs/contributors",
+  "author": "https://github.com/tryharddood/ngx-fomantic-ui/graphs/contributors",
   "keywords": [
     "angular",
     "angular-components",

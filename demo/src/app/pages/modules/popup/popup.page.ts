@@ -1,6 +1,6 @@
-import { Component, Input } from "@angular/core";
-import { ApiDefinition } from "../../../components/api/api.component";
-import { SuiPopupConfig } from "ng2-semantic-ui";
+import {Component, Input} from "@angular/core";
+import {ApiDefinition} from "../../../components/api/api.component";
+import {SuiPopupConfig} from "ngx-fomantic-ui";
 
 const exampleStandardTemplate = `
 <button class="ui green icon button" suiPopup popupHeader="Example" popupText="This is an example popup">
@@ -216,7 +216,7 @@ export class PopupPage {
 `;
 
     public manualPopupCode:string = `
-import {IPopup} from "ng2-semantic-ui";
+import {IPopup} from "ngx-fomantic-ui";
 
 @Component({})
 export class MyComponent {
@@ -231,7 +231,7 @@ export class MyComponent {
 `;
 
     public globalConfigCode:string = `
-import {SuiPopupConfig} from "ng2-semantic-ui";
+import {SuiPopupConfig} from "ngx-fomantic-ui";
 
 @Component({})
 export class MyComponent {

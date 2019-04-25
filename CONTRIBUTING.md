@@ -1,6 +1,6 @@
-# Contributing to ng2-semantic-ui
+# Contributing to ngx-fomantic-ui
 
-Your contribution will be greatly appreciated, and will help ng2-semantic-ui get even better! As a contributor, here are the guidelines to follow:
+Your contribution will be greatly appreciated, and will help ngx-fomantic-ui get even better! As a contributor, here are the guidelines to follow:
 
 * [Code of Conduct](#code-of-conduct)
 * [Bug, Question or Problem?](#bug-question-or-problem)
@@ -11,11 +11,11 @@ Your contribution will be greatly appreciated, and will help ng2-semantic-ui get
 
 ## Code of Conduct
 
-Please read and follow the [Code of Conduct](https://github.com/edcarroll/ng2-semantic-ui/blob/master/CODE_OF_CONDUCT.md).
+Please read and follow the [Code of Conduct](https://github.com/edcarroll/ngx-fomantic-ui/blob/master/CODE_OF_CONDUCT.md).
 
 ## Bug, Question or Problem?
 
-For any usage questions you have, you can join [Gitter](https://gitter.im/ng2-semantic-ui/Lobby) to ask for help.
+For any usage questions you have, you can join [Gitter](https://gitter.im/ngx-fomantic-ui/Lobby) to ask for help.
 
 If you've found a bug, please submit an issue. Even better would be submitting a Pull Request with a fix.
 
@@ -37,22 +37,22 @@ and help you to craft the change so that it is successfully accepted into the pr
 
 Before you submit an issue, please search the issue tracker, as an issue for your problem may already exist and the discussion might inform you of readily available workarounds.
 
-Ideally all issues are fixed as soon as possible, but before that can be done the bug must be confirmed. This is done by providing a minimal reproduction scenario using [http://plunkr.co](http://plunkr.co). You can fork the [ng2-semantic-ui plunkr starter](http://plnkr.co/edit/SJMMMS8wQkwdX1HeMqiH?p=preview) and use it as a starting point. Having a live, reproducible scenario provides a wealth of important information without needing to go back & forth to you with additional queries such as:
+Ideally all issues are fixed as soon as possible, but before that can be done the bug must be confirmed. This is done by providing a minimal reproduction scenario using [http://plunkr.co](http://plunkr.co). You can fork the [ngx-fomantic-ui plunkr starter](http://plnkr.co/edit/SJMMMS8wQkwdX1HeMqiH?p=preview) and use it as a starting point. Having a live, reproducible scenario provides a wealth of important information without needing to go back & forth to you with additional queries such as:
 
 * Angular version used
-* ng2-semantic-ui version used
+* ngx-fomantic-ui version used
 * 3rd-party libraries used, if any
 * Most importantly - a use-case that fails
 
 A minimal reproduce scenario using [http://plunkr.co](http://plunkr.co) allows quick confirmation of a bug (or coding problem) and also confirms that the right problem is being fixed. Issues filed that do not include this (or a standalone git repository demonstrating the problem) won't be looked at until they do.
 
-You can file new issues by filling out the [issue form](https://github.com/edcarroll/ng2-semantic-ui/issues/new).
+You can file new issues by filling out the [issue form](https://github.com/edcarroll/ngx-fomantic-ui/issues/new).
 
 ### Submitting a Pull Request
 
 Before submitting a Pull Request (PR) consider the following guidelines:
 
-* Search the Github [pull requests](https://github.com/edcarroll/ng2-semantic-ui/pulls) for an open or closed PR relating to your submission (to avoid duplicating effort).
+* Search the Github [pull requests](https://github.com/edcarroll/ngx-fomantic-ui/pulls) for an open or closed PR relating to your submission (to avoid duplicating effort).
 
 * Fork a copy of the repository to your own Github account - [see Github guide](https://help.github.com/articles/working-with-forks/)
 
@@ -74,7 +74,7 @@ Before submitting a Pull Request (PR) consider the following guidelines:
     $ git push origin my-fix-branch
     ```
 
-* In GitHub, send a pull request to `ng2-semantic-ui:master`
+* In GitHub, send a pull request to `ngx-fomantic-ui:master`
   - Create a new pull request
   - Select **compare across forks**
   - Set your repo and fix branch as the head fork to compare.

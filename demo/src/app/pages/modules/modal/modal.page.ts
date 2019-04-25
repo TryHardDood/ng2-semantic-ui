@@ -1,10 +1,14 @@
-import { Component, ViewChild } from "@angular/core";
-import { ApiDefinition } from "../../../components/api/api.component";
+import {Component, ViewChild} from "@angular/core";
+import {ApiDefinition} from "../../../components/api/api.component";
 import {
-    SuiModalService, ModalTemplate, TemplateModalConfig, ComponentModalConfig,
-    ModalSize, SuiModal
-} from "ng2-semantic-ui";
-import { AlertModal } from "../../../modals/alert.modal";
+    ComponentModalConfig,
+    ModalSize,
+    ModalTemplate,
+    SuiModal,
+    SuiModalService,
+    TemplateModalConfig
+} from "ngx-fomantic-ui";
+import {AlertModal} from "../../../modals/alert.modal";
 
 const exampleTemplateModalTemplate = `
 <ng-template let-context let-modal="modal" #modalTemplate>
@@ -160,7 +164,7 @@ export class ModalPage {
     public templateTemplate:string = exampleTemplateModalTemplate;
 
     public templateComponent:string = `
-import {SuiModalService, TemplateModalConfig, ModalTemplate} from 'ng2-semantic-ui';
+import {SuiModalService, TemplateModalConfig, ModalTemplate} from 'ngx-fomantic-ui';
 
 export interface IContext {
     data:string;
@@ -190,7 +194,7 @@ public open(dynamicContent:string = "Example") {
 `;
 
     public componentComponent:string = `
-import {SuiModal, ComponentModalConfig, ModalSize} from "ng2-semantic-ui"
+import {SuiModal, ComponentModalConfig, ModalSize} from "ngx-fomantic-ui"
 
 interface IConfirmModalContext {
     title:string;

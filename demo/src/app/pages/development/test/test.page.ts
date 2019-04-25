@@ -1,5 +1,4 @@
-import { Component, AfterViewInit, ViewChild, TemplateRef } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
+import {Component} from "@angular/core";
 
 @Component({
     selector: "demo-page-test",

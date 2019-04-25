@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input, ChangeDetectorRef } from "@angular/core";
+import {AfterViewInit, ChangeDetectorRef, Component, Input} from "@angular/core";
 
 @Component({
     selector: "demo-codeblock",

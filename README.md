@@ -1,28 +1,28 @@
 <!-- Logo -->
 <p align="center">
-  <a href="https://edcarroll.github.io/ng2-semantic-ui/">
-    <img height="128" width="238" src="https://raw.githubusercontent.com/edcarroll/ng2-semantic-ui/master/demo/src/assets/logo.png">
+  <a href="https://edcarroll.github.io/ngx-fomantic-ui/">
+    <img height="128" width="238" src="https://raw.githubusercontent.com/edcarroll/ngx-fomantic-ui/master/demo/src/assets/logo.png">
   </a>
 </p>
 
 <!-- Name -->
 <h1 align="center">
-  <a href="https://edcarroll.github.io/ng2-semantic-ui">ng2-semantic-ui</a>
+  <a href="https://edcarroll.github.io/ngx-fomantic-ui">ngx-fomantic-ui</a>
 </h1>
 
 <!-- Badges -->
 <p align="center">
-  <a href="https://gitter.im/ng2-semantic-ui/Lobby">
-    <img alt="Gitter" src="https://img.shields.io/gitter/room/ng2-semantic-ui/Lobby.js.svg?style=flat-square" />
+  <a href="https://gitter.im/ngx-fomantic-ui/Lobby">
+    <img alt="Gitter" src="https://img.shields.io/gitter/room/ngx-fomantic-ui/Lobby.js.svg?style=flat-square" />
   </a>
-  <a href="https://travis-ci.org/edcarroll/ng2-semantic-ui">
-    <img alt="Travis CI" src="https://img.shields.io/travis/edcarroll/ng2-semantic-ui.svg?style=flat-square" />
+  <a href="https://travis-ci.org/edcarroll/ngx-fomantic-ui">
+    <img alt="Travis CI" src="https://img.shields.io/travis/edcarroll/ngx-fomantic-ui.svg?style=flat-square" />
   </a>
-  <a href="https://www.npmjs.com/package/ng2-semantic-ui">
-    <img alt="npm" src="https://img.shields.io/npm/v/ng2-semantic-ui.svg?style=flat-square" />
+  <a href="https://www.npmjs.com/package/ngx-fomantic-ui">
+    <img alt="npm" src="https://img.shields.io/npm/v/ngx-fomantic-ui.svg?style=flat-square" />
   </a>
-  <a href="https://www.npmjs.com/package/ng2-semantic-ui">
-    <img alt="monthly downloads" src="https://img.shields.io/npm/dm/ng2-semantic-ui.svg?style=flat-square" />
+  <a href="https://www.npmjs.com/package/ngx-fomantic-ui">
+    <img alt="monthly downloads" src="https://img.shields.io/npm/dm/ngx-fomantic-ui.svg?style=flat-square" />
   </a>
 </p>
 
@@ -36,7 +36,7 @@ Note that only Semantic UI elements that use jQuery are recreated here - those w
 
 ## Installation & Usage
 
-See the [Documentation](https://edcarroll.github.io/ng2-semantic-ui) for installation instructions and extensive examples.
+See the [Documentation](https://edcarroll.github.io/ngx-fomantic-ui) for installation instructions and extensive examples.
 
 ## Dependencies
 
@@ -47,8 +47,8 @@ See the [Documentation](https://edcarroll.github.io/ng2-semantic-ui) for install
 
 |           Icon          |                                      Description                                    |
 |-------------------------|-------------------------------------------------------------------------------------|
-| :white_check_mark:      | Component supported by ng2-semantic-ui.                                             |
-| :rocket:                | Semantic UI plugin supported by ng2-semantic-ui (not in Semantic UI Core).          |
+| :white_check_mark:      | Component supported by ngx-fomantic-ui.                                             |
+| :rocket:                | Semantic UI plugin supported by ngx-fomantic-ui (not in Semantic UI Core).          |
 | :ballot_box_with_check: | Component supported natively by [Semantic UI](https://semantic-ui.com/) (CSS only). |
 | :x:                     | Component currently unavailable.                                                    |
 | :no_entry_sign:         | Component not applicable to Angular.                                                |
@@ -75,7 +75,7 @@ See the [Documentation](https://edcarroll.github.io/ng2-semantic-ui) for install
 
 ## Want to help?
 
-Want to file a bug, contribute some code, or improve documentation? Great! Please read the [contributing guidelines](https://github.com/edcarroll/ng2-semantic-ui/blob/master/CONTRIBUTING.md) to get going.
+Want to file a bug, contribute some code, or improve documentation? Great! Please read the [contributing guidelines](https://github.com/edcarroll/ngx-fomantic-ui/blob/master/CONTRIBUTING.md) to get going.
 
 ## Development
 
