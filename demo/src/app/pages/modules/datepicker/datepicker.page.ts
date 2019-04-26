@@ -175,9 +175,6 @@ export class DatepickerPage {
     public exampleButtonTemplate:string = exampleButtonTemplate;
     public exampleMinMaxTemplate:string = exampleMinMaxTemplate;
     public exampleMobileFallbackTemplate:string = exampleMobileFallbackTemplate;
-
-    public cssInclude:string =
-`<link rel="stylesheet" href="https://unpkg.com/semantic-ui-calendar/dist/calendar.min.css">`;
 }
 
 @Component({
