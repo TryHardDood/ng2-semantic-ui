@@ -1,6 +1,6 @@
-import {IPartialLocaleValues} from "./interfaces/values";
+import { IPartialLocaleValues } from "./interfaces/values";
 
-const enUS:IPartialLocaleValues = {
+const enUS: IPartialLocaleValues = {
     datepicker: {
         firstDayOfWeek: 0,
         formats: {

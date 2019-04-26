@@ -1,5 +1,5 @@
-import {Type} from "@angular/core";
-import {ModalTemplate} from "./modal-template";
+import { Type } from "@angular/core";
+import { ModalTemplate } from "./modal-template";
 
 export type ModalSize = "mini" | "tiny" | "small" | "normal" | "large";
 
@@ -14,33 +14,33 @@ export const ModalSize = {
 // Stores a basic set of configuration options for a modal.
 export class ModalConfig<T, U = undefined, V = undefined> {
     // Determines whether the modal can be closed with a close button, clicking outside, or the escape key.
-    public isClosable:boolean;
+    public isClosable: boolean;
     // Value to deny with when closing via `isClosable`.
-    public closeResult:V;
+    public closeResult: V;
 
     // Data to pass to the modal instance when opened.
-    public context?:T;
+    public context?: T;
 
     // Size used to display the modal.
-    public size:ModalSize;
+    public size: ModalSize;
     // Whether the modal takes up the full width of the screen.
-    public isFullScreen:boolean;
+    public isFullScreen: boolean;
     // Whether or not the modal has basic styles applied.
-    public isBasic:boolean;
+    public isBasic: boolean;
     // Whether the modal shows against a light background.
-    public isInverted:boolean;
+    public isInverted: boolean;
     // Whether or not the modal should be placed in the center of the page.
-    public isCentered:boolean;
+    public isCentered: boolean;
 
     // Whether or not the modal should always display a scrollbar.
-    public mustScroll:boolean;
+    public mustScroll: boolean;
 
     // Transition to display modal with.
-    public transition:string;
+    public transition: string;
     // Duration of the modal & dimmer transitions.
-    public transitionDuration:number;
+    public transitionDuration: number;
 
-    constructor(context:T | undefined = undefined, isClosable:boolean = true) {
+    constructor(context: T | undefined = undefined, isClosable: boolean = true) {
         // Initialise with default values.
         this.isClosable = isClosable;
         this.context = context;
@@ -60,9 +60,9 @@ export class ModalConfig<T, U = undefined, V = undefined> {
 
 // Used when creating a modal from a `TemplateRef`.
 export class TemplateModalConfig<T, U = undefined, V = undefined> extends ModalConfig<T, U, V> {
-    public template:ModalTemplate<T, U, V>;
+    public template: ModalTemplate<T, U, V>;
 
-    constructor(template:ModalTemplate<T, U, V>, context:T | undefined = undefined, isClosable:boolean = true) {
+    constructor(template: ModalTemplate<T, U, V>, context: T | undefined = undefined, isClosable: boolean = true) {
         super(context, isClosable);
 
         this.template = template;
@@ -71,9 +71,9 @@ export class TemplateModalConfig<T, U = undefined, V = undefined> extends ModalC
 
 // Used when creating a modal from an existing component.
 export class ComponentModalConfig<T, U = undefined, V = undefined> extends ModalConfig<T, U, V> {
-    public component:Type<any>;
+    public component: Type<any>;
 
-    constructor(component:Type<any>, context:T | undefined = undefined, isClosable:boolean = true) {
+    constructor(component: Type<any>, context: T | undefined = undefined, isClosable: boolean = true) {
         super(context, isClosable);
 
         this.component = component;

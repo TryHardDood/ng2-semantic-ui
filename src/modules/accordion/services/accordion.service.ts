@@ -1,12 +1,12 @@
-import {SuiAccordionPanel} from "../components/accordion-panel";
+import { SuiAccordionPanel } from "../components/accordion-panel";
 
 export class SuiAccordionService {
-    public closeOthers:boolean;
+    public closeOthers: boolean;
 
-    public transition:string;
-    public transitionDuration:number;
+    public transition: string;
+    public transitionDuration: number;
 
-    public panels:SuiAccordionPanel[];
+    public panels: SuiAccordionPanel[];
 
     constructor() {
         this.closeOthers = true;
@@ -17,12 +17,12 @@ export class SuiAccordionService {
         this.panels = [];
     }
 
-    public addPanel(panel:SuiAccordionPanel):void {
+    public addPanel(panel: SuiAccordionPanel): void {
         panel.service = this;
         this.panels.push(panel);
     }
 
-    public closeOtherPanels(panel:SuiAccordionPanel):void {
+    public closeOtherPanels(panel: SuiAccordionPanel): void {
         if (!this.closeOthers) {
             return;
         }

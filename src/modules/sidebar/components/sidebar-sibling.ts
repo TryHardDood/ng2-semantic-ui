@@ -1,34 +1,42 @@
-import {Component, ElementRef, HostBinding, HostListener, Input, Renderer2} from "@angular/core";
-import {SidebarService, SidebarTransition} from "../services/sidebar.service";
+import { Component, ElementRef, HostBinding, HostListener, Input, Renderer2 } from "@angular/core";
+import { SidebarService, SidebarTransition } from "../services/sidebar.service";
 
 @Component({
-    selector: "sui-sidebar-sibling",
-    template: `<ng-content></ng-content>`,
-    styles: [`
+               selector: "sui-sidebar-sibling",
+               template: `<ng-content></ng-content>`,
+               styles: [`
 :host {
     display: block;
 }
 `]
-})
+           })
 export class SuiSidebarSibling {
-    private _service:SidebarService;
+    @Input()
+    public isDimmedWhenVisible: boolean;
+    @HostBinding("class.pusher")
+    public readonly hasClasses: boolean;
 
-    public get service():SidebarService {
+    constructor(private _renderer: Renderer2, private _element: ElementRef) {
+        this.isDimmedWhenVisible = false;
+
+        this.hasClasses = true;
+    }
+
+    private _service: SidebarService;
+
+    public get service(): SidebarService {
         return this._service;
     }
 
-    public set service(service:SidebarService) {
+    public set service(service: SidebarService) {
         this._service = service;
 
         setTimeout(() => this.updateTransform());
         this._service.isVisibleChange.subscribe(() => this.updateTransform());
     }
 
-    @Input()
-    public isDimmedWhenVisible:boolean;
-
     @HostBinding("class.visible")
-    public get isVisible():boolean {
+    public get isVisible(): boolean {
         if (!this.service) {
             return false;
         }
@@ -36,23 +44,21 @@ export class SuiSidebarSibling {
     }
 
     @HostBinding("class.dimmed")
-    public get isDimmed():boolean {
+    public get isDimmed(): boolean {
         if (!this.service) {
             return false;
         }
         return this.service.isVisible && this.isDimmedWhenVisible;
     }
 
-    @HostBinding("class.pusher")
-    public readonly hasClasses:boolean;
-
-    constructor(private _renderer:Renderer2, private _element:ElementRef) {
-        this.isDimmedWhenVisible = false;
-
-        this.hasClasses = true;
+    @HostListener("click", ["$event"])
+    public onClick(event: MouseEvent): void {
+        if (this.service.isVisible && !this.service.wasJustOpened) {
+            this.service.setVisibleState(false);
+        }
     }
 
-    private updateTransform():void {
+    private updateTransform(): void {
         this._renderer.removeStyle(this._element.nativeElement, "transform");
         this._renderer.removeStyle(this._element.nativeElement, "-webkit-transform");
 
@@ -63,13 +69,6 @@ export class SuiSidebarSibling {
             const translate = `translate3d(${this.service.width}px, ${this.service.height}px, 0)`;
             this._renderer.setStyle(this._element.nativeElement, "transform", translate);
             this._renderer.setStyle(this._element.nativeElement, "-webkit-transform", translate);
-        }
-    }
-
-    @HostListener("click", ["$event"])
-    public onClick(event:MouseEvent):void {
-        if (this.service.isVisible && !this.service.wasJustOpened) {
-            this.service.setVisibleState(false);
         }
     }
 }

@@ -1,22 +1,22 @@
-import {ElementRef} from "@angular/core";
-import Popper, {Data, Modifiers, Placement, PopperOptions} from "popper.js";
+import { ElementRef } from "@angular/core";
+import Popper, { Data, Modifiers, Placement, PopperOptions } from "popper.js";
 
 type PopperModifiers = Modifiers & {
-    computeStyle?:{
-        gpuAcceleration:boolean;
+    computeStyle?: {
+        gpuAcceleration: boolean;
     };
 };
 type PopperInstance = Popper & {
-    options:PopperOptions & {
-        modifiers:PopperModifiers;
+    options: PopperOptions & {
+        modifiers: PopperModifiers;
     };
 };
 
 export type PositioningPlacement = "auto" |
-                                   "top left" | "top" | "top right" |
-                                   "bottom left" | "bottom" | "bottom right" |
-                                   "left top" | "left" | "left bottom" |
-                                   "right top" | "right" | "right bottom";
+    "top left" | "top" | "top right" |
+    "bottom left" | "bottom" | "bottom right" |
+    "left top" | "left" | "left bottom" |
+    "right top" | "right" | "right bottom";
 
 export const PositioningPlacement = {
     Auto: "auto" as PositioningPlacement,
@@ -35,15 +35,15 @@ export const PositioningPlacement = {
 };
 
 export interface IPositionBoundingBox {
-    width:number;
-    height:number;
-    top:number;
-    left:number;
-    bottom:number;
-    right:number;
+    width: number;
+    height: number;
+    top: number;
+    left: number;
+    bottom: number;
+    right: number;
 }
 
-function placementToPopper(placement:PositioningPlacement):Placement {
+function placementToPopper(placement: PositioningPlacement): Placement {
     if (!placement || placement === PositioningPlacement.Auto) {
         return "auto";
     }
@@ -70,7 +70,7 @@ function placementToPopper(placement:PositioningPlacement):Placement {
     return chosenPlacement.join("-") as Placement;
 }
 
-function popperToPlacement(popper:string):PositioningPlacement {
+function popperToPlacement(popper: string): PositioningPlacement {
     if (!popper || popper === "auto") {
         return "auto";
     }
@@ -108,43 +108,14 @@ function popperToPlacement(popper:string):PositioningPlacement {
 }
 
 export class PositioningService {
-    public readonly anchor:ElementRef;
-    public readonly subject:ElementRef;
+    public readonly anchor: ElementRef;
+    public readonly subject: ElementRef;
 
-    private _popper:PopperInstance;
-    private _popperState:Data;
-    private _placement:PositioningPlacement;
-    private _hasArrow:boolean;
-    private _arrowSelector:string | undefined;
+    private _popper: PopperInstance;
+    private _popperState: Data;
+    private _arrowSelector: string | undefined;
 
-    public get placement():PositioningPlacement {
-        return this._placement;
-    }
-
-    public set placement(placement:PositioningPlacement) {
-        this._placement = placement;
-        if (this._popper) {
-            this._popper.options.placement = placementToPopper(placement);
-        }
-    }
-
-    public set hasArrow(hasArrow:boolean) {
-        this._hasArrow = hasArrow;
-    }
-
-    public get actualPlacement():PositioningPlacement {
-        if (!this._popperState) {
-            return PositioningPlacement.Auto;
-        }
-
-        return popperToPlacement(this._popperState.placement);
-    }
-
-    public get state():Data {
-        return this._popperState;
-    }
-
-    constructor(anchor:ElementRef, subject:ElementRef, placement:PositioningPlacement, arrowSelector?:string) {
+    constructor(anchor: ElementRef, subject: ElementRef, placement: PositioningPlacement, arrowSelector?: string) {
         this.anchor = anchor;
         this.subject = subject;
         this._placement = placement;
@@ -152,8 +123,39 @@ export class PositioningService {
         this.init();
     }
 
-    public init():void {
-        const modifiers:PopperModifiers = {
+    private _placement: PositioningPlacement;
+
+    public get placement(): PositioningPlacement {
+        return this._placement;
+    }
+
+    public set placement(placement: PositioningPlacement) {
+        this._placement = placement;
+        if (this._popper) {
+            this._popper.options.placement = placementToPopper(placement);
+        }
+    }
+
+    private _hasArrow: boolean;
+
+    public set hasArrow(hasArrow: boolean) {
+        this._hasArrow = hasArrow;
+    }
+
+    public get actualPlacement(): PositioningPlacement {
+        if (!this._popperState) {
+            return PositioningPlacement.Auto;
+        }
+
+        return popperToPlacement(this._popperState.placement);
+    }
+
+    public get state(): Data {
+        return this._popperState;
+    }
+
+    public init(): void {
+        const modifiers: PopperModifiers = {
             computeStyle: {
                 gpuAcceleration: false
             },
@@ -165,7 +167,7 @@ export class PositioningService {
                 element: this._arrowSelector
             },
             offset: {
-                fn: (data:Popper.Data) => {
+                fn: (data: Popper.Data) => {
                     if (this._hasArrow) {
                         const offsets = this.calculateOffsets();
                         data.offsets.popper.left += offsets.left;
@@ -191,16 +193,17 @@ export class PositioningService {
             }) as PopperInstance;
     }
 
-    public update():void {
+    public update(): void {
         this._popper.update();
     }
 
-    public destroy():void {
+    public destroy(): void {
         this._popper.destroy();
     }
 
-    private calculateOffsets():Popper.Offset {
-        let left = 0; let top = 0;
+    private calculateOffsets(): Popper.Offset {
+        let left = 0;
+        let top = 0;
 
         // To support correct positioning for all popup sizes we should calculate offset using em
         const fontSize = parseFloat(window.getComputedStyle(this.subject.nativeElement).getPropertyValue("font-size"));
@@ -226,7 +229,7 @@ export class PositioningService {
                 top = arrowCenter - anchorCenterHeight;
             }
         }
-        return { top, left, width: 0, height: 0 };
+        return {top, left, width: 0, height: 0};
     }
 
 }

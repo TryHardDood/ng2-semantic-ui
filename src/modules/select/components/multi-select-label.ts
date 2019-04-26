@@ -12,67 +12,44 @@ import {
     ViewChild,
     ViewContainerRef
 } from "@angular/core";
-import {SuiTransition, Transition, TransitionController, TransitionDirection} from "../../transition/internal";
-import {HandledEvent, SuiComponentFactory} from "../../../misc/util/internal";
-import {IOptionContext} from "../classes/select-base";
+import { SuiTransition, Transition, TransitionController, TransitionDirection } from "../../transition/internal";
+import { HandledEvent, SuiComponentFactory } from "../../../misc/util/internal";
+import { IOptionContext } from "../classes/select-base";
 
 // See https://github.com/Microsoft/TypeScript/issues/13449.
 const templateRef = TemplateRef;
 
 @Component({
-    selector: "sui-multi-select-label",
-    template: `
+               selector: "sui-multi-select-label",
+               template: `
 <span #templateSibling></span>
 <span *ngIf="!template" [innerHTML]="formatter(value)"></span>
 <i class="delete icon" (click)="deselectOption($event)"></i>
 `
-})
+           })
 export class SuiMultiSelectLabel<T> extends SuiTransition {
     // Sets the Semantic UI classes on the host element.
     // Doing it on the host enables use in menus etc.
     @HostBinding("class.ui")
     @HostBinding("class.label")
-    public readonly hasClasses:boolean;
-
-    private _transitionController:TransitionController;
-
+    public readonly hasClasses: boolean;
     @Input()
-    public value:T;
-
+    public value: T;
     @Input()
-    public query?:string;
-
+    public query?: string;
     @Output("deselected")
-    public onDeselected:EventEmitter<T>;
-
+    public onDeselected: EventEmitter<T>;
     @Input()
-    public formatter:(obj:T) => string;
-
-    private _template?:TemplateRef<IOptionContext<T>>;
-
-    @Input()
-    public get template():TemplateRef<IOptionContext<T>> | undefined {
-        return this._template;
-    }
-
-    public set template(template:TemplateRef<IOptionContext<T>> | undefined) {
-        this._template = template;
-        if (this.template) {
-            this.componentFactory.createView(this.templateSibling, this.template, {
-                $implicit: this.value,
-                query: this.query
-            });
-        }
-    }
-
+    public formatter: (obj: T) => string;
     // Placeholder to draw template beside.
-    @ViewChild("templateSibling", { read: ViewContainerRef })
-    public templateSibling:ViewContainerRef;
+    @ViewChild("templateSibling", {read: ViewContainerRef})
+    public templateSibling: ViewContainerRef;
+    private _transitionController: TransitionController;
 
-    constructor(renderer:Renderer2,
-                element:ElementRef,
-                changeDetector:ChangeDetectorRef,
-                public componentFactory:SuiComponentFactory) {
+    constructor(renderer: Renderer2,
+                element: ElementRef,
+                changeDetector: ChangeDetectorRef,
+                public componentFactory: SuiComponentFactory) {
 
         super(renderer, element, changeDetector);
 
@@ -87,7 +64,24 @@ export class SuiMultiSelectLabel<T> extends SuiTransition {
         this._transitionController.animate(new Transition("scale", 100, TransitionDirection.In));
     }
 
-    public deselectOption(e:HandledEvent):void {
+    private _template?: TemplateRef<IOptionContext<T>>;
+
+    @Input()
+    public get template(): TemplateRef<IOptionContext<T>> | undefined {
+        return this._template;
+    }
+
+    public set template(template: TemplateRef<IOptionContext<T>> | undefined) {
+        this._template = template;
+        if (this.template) {
+            this.componentFactory.createView(this.templateSibling, this.template, {
+                $implicit: this.value,
+                query: this.query
+            });
+        }
+    }
+
+    public deselectOption(e: HandledEvent): void {
         e.eventHandled = true;
 
         this._transitionController.animate(
@@ -96,7 +90,7 @@ export class SuiMultiSelectLabel<T> extends SuiTransition {
     }
 
     @HostListener("click", ["$event"])
-    public onClick(e:HandledEvent):void {
+    public onClick(e: HandledEvent): void {
         e.eventHandled = true;
     }
 }

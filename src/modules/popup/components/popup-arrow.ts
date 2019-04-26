@@ -1,13 +1,13 @@
-import {Component, HostBinding, Input} from "@angular/core";
-import {PositioningPlacement} from "../../../misc/util/internal";
+import { Component, HostBinding, Input } from "@angular/core";
+import { PositioningPlacement } from "../../../misc/util/internal";
 
 @Component({
-    selector: "sui-popup-arrow",
-    template: `
+               selector: "sui-popup-arrow",
+               template: `
 <div class="dynamic arrow" [attr.direction]="direction" *ngIf="alignment == 'center'"></div>
 <div class="static arrow" [attr.direction]="direction" [attr.alignment]="alignment" *ngIf="alignment != 'center'"></div>
 `,
-    styles: [`
+               styles: [`
 .arrow {
     position: absolute;
     width: 0.71428571em;
@@ -67,22 +67,22 @@ import {PositioningPlacement} from "../../../misc/util/internal";
     bottom: 1em;
 }
 `]
-})
+           })
 export class SuiPopupArrow {
     @Input()
-    public placement:PositioningPlacement;
+    public placement: PositioningPlacement;
 
     @HostBinding("class.inverted")
     @Input()
-    public inverted:boolean;
+    public inverted: boolean;
 
-    public get direction():string | undefined {
+    public get direction(): string | undefined {
         if (this.placement) {
             return this.placement.split(" ").shift();
         }
     }
 
-    public get alignment():string | undefined {
+    public get alignment(): string | undefined {
         if (this.placement) {
             const alignment = this.placement.split(" ").pop();
             if (alignment === this.direction) {

@@ -1,83 +1,23 @@
-import {Util} from "../../../misc/util/internal";
-import {FilterFn, LookupFn, LookupFnResult} from "../helpers/lookup-fn";
+import { Util } from "../../../misc/util/internal";
+import { FilterFn, LookupFn, LookupFnResult } from "../helpers/lookup-fn";
 
-interface ICachedArray<T> { [query:string]:T[]; }
+interface ICachedArray<T> {
+    [query: string]: T[];
+}
 
 export class SearchService<T, U> {
-    // Stores the available options.
-    private _options:T[];
-    // Converts a query string into an array of options. Must be a function returning a promise.
-    private _optionsLookup?:LookupFn<T, U>;
-    // Field that options are searched & displayed on.
-    private _optionsField?:string;
     // Filters a list of options.
-    public optionsFilter:FilterFn<T>;
-
-    public get options():T[] {
-        return this._options;
-    }
-
-    public set options(options:T[]) {
-        this._options = options || [];
-        // We cannot use both local & remote options simultaneously.
-        this._optionsLookup = undefined;
-        // Reset entire service with new options.
-        this.reset();
-    }
-
-    public get optionsLookup():LookupFn<T, U> | undefined {
-        return this._optionsLookup;
-    }
-
-    public set optionsLookup(lookupFn:LookupFn<T, U> | undefined) {
-        this._optionsLookup = lookupFn;
-        // As before, cannot use local & remote options simultaneously.
-        this._options = [];
-        this.reset();
-    }
-
-    public get hasItemLookup():boolean {
-        return !!this.optionsLookup && this.optionsLookup.length === 2;
-    }
-
-    public get optionsField():string | undefined {
-        return this._optionsField;
-    }
-
-    public set optionsField(field:string | undefined) {
-        this._optionsField = field;
-        // We need to reset otherwise we would now be showing invalid search results.
-        this.reset();
-    }
-
-    // Stores the results of the query.
-    private _results:T[];
-    // Cache of results, indexed by query.
-    private _resultsCache:ICachedArray<T>;
-
-    public get results():T[] {
-        return this._results;
-    }
-
-    private _query:string;
+    public optionsFilter: FilterFn<T>;
     // Allows the empty query to produce results.
-    public allowEmptyQuery:boolean;
+    public allowEmptyQuery: boolean;
     // How long to delay the search for when using updateQueryDelayed. Stored in ms.
-    public searchDelay:number;
+    public searchDelay: number;
+    // Cache of results, indexed by query.
+    private _resultsCache: ICachedArray<T>;
     // Stores the search timeout handle so we can cancel it.
-    private _searchDelayTimeout:number;
-    // Provides 'loading' functionality.
-    private _isSearching:boolean;
+    private _searchDelayTimeout: number;
 
-    public get query():string {
-        return this._query;
-    }
-
-    public get isSearching():boolean {
-        return this._isSearching;
-    }
-
-    constructor(allowEmptyQuery:boolean = false) {
+    constructor(allowEmptyQuery: boolean = false) {
         this._options = [];
         this.optionsFilter = (os, q) => {
             // Convert the query string to a RegExp.
@@ -87,7 +27,7 @@ export class SearchService<T, U> {
                 // Only update the results if the query was valid regex.
                 // This avoids the results suddenly becoming empty if an invalid regex string is inputted.
                 return os
-                    // Filter on the options with a string match on the field we are testing.
+                // Filter on the options with a string match on the field we are testing.
                     .filter(o => Util.Object.readValue<T, string>(o, this._optionsField)
                         .toString()
                         .match(regex));
@@ -103,8 +43,75 @@ export class SearchService<T, U> {
         this.reset();
     }
 
+    // Stores the available options.
+    private _options: T[];
+
+    public get options(): T[] {
+        return this._options;
+    }
+
+    public set options(options: T[]) {
+        this._options = options || [];
+        // We cannot use both local & remote options simultaneously.
+        this._optionsLookup = undefined;
+        // Reset entire service with new options.
+        this.reset();
+    }
+
+    // Converts a query string into an array of options. Must be a function returning a promise.
+    private _optionsLookup?: LookupFn<T, U>;
+
+    public get optionsLookup(): LookupFn<T, U> | undefined {
+        return this._optionsLookup;
+    }
+
+    public set optionsLookup(lookupFn: LookupFn<T, U> | undefined) {
+        this._optionsLookup = lookupFn;
+        // As before, cannot use local & remote options simultaneously.
+        this._options = [];
+        this.reset();
+    }
+
+    // Field that options are searched & displayed on.
+    private _optionsField?: string;
+
+    public get optionsField(): string | undefined {
+        return this._optionsField;
+    }
+
+    public set optionsField(field: string | undefined) {
+        this._optionsField = field;
+        // We need to reset otherwise we would now be showing invalid search results.
+        this.reset();
+    }
+
+    public get hasItemLookup(): boolean {
+        return !!this.optionsLookup && this.optionsLookup.length === 2;
+    }
+
+    // Stores the results of the query.
+    private _results: T[];
+
+    public get results(): T[] {
+        return this._results;
+    }
+
+    private _query: string;
+
+    public get query(): string {
+        return this._query;
+    }
+
+    // Provides 'loading' functionality.
+    private _isSearching: boolean;
+
+    public get isSearching(): boolean {
+        return this._isSearching;
+    }
+
     // Updates the query after the specified search delay.
-    public updateQueryDelayed(query:string, callback:(err?:Error) => void = () => {}):void {
+    public updateQueryDelayed(query: string, callback: (err?: Error) => void = () => {
+    }): void {
         this._query = query;
 
         clearTimeout(this._searchDelayTimeout);
@@ -117,7 +124,8 @@ export class SearchService<T, U> {
     }
 
     // Updates the current search query.
-    public updateQuery(query:string, callback:(err?:Error) => void = () => {}):void {
+    public updateQuery(query: string, callback: (err?: Error) => void = () => {
+    }): void {
         this._query = query;
 
         if (this._query === "" && !this.allowEmptyQuery) {
@@ -162,35 +170,22 @@ export class SearchService<T, U> {
         return callback();
     }
 
-    // Updates & caches the new set of results.
-    private updateResults(results:T[]):void {
-        this._resultsCache[this._query] = results;
-        this._results = results;
-    }
+    // tslint:disable-next-line:promise-function-async
+    public initialLookup(initial: U): LookupFnResult<T>;
 
     // tslint:disable-next-line:promise-function-async
-    public initialLookup(initial:U):LookupFnResult<T>;
+    public initialLookup(initial: U[]): LookupFnResult<T[]>;
+
     // tslint:disable-next-line:promise-function-async
-    public initialLookup(initial:U[]):LookupFnResult<T[]>;
-    // tslint:disable-next-line:promise-function-async
-    public initialLookup(initial:U | U[]):LookupFnResult<T> | LookupFnResult<T[]> {
+    public initialLookup(initial: U | U[]): LookupFnResult<T> | LookupFnResult<T[]> {
         if (initial instanceof Array) {
             return (this._optionsLookup as LookupFn<T, U[]>)(undefined, initial) as LookupFnResult<T[]>;
         }
         return (this._optionsLookup as LookupFn<T, U>)(undefined, initial) as LookupFnResult<T>;
     }
 
-    // Converts a query string to regex without throwing an error.
-    private toRegex(query:string):RegExp | string {
-        try {
-            return new RegExp(query, "i");
-        } catch (e) {
-            return query;
-        }
-    }
-
     // Generates HTML for highlighted match text.
-    public highlightMatches(text:string, query:string):string {
+    public highlightMatches(text: string, query: string): string {
         const regex = this.toRegex(query);
         if (regex instanceof RegExp) {
             return text.replace(regex, match => `<b>${match}</b>`);
@@ -198,8 +193,23 @@ export class SearchService<T, U> {
         return text;
     }
 
+    // Updates & caches the new set of results.
+    private updateResults(results: T[]): void {
+        this._resultsCache[this._query] = results;
+        this._results = results;
+    }
+
+    // Converts a query string to regex without throwing an error.
+    private toRegex(query: string): RegExp | string {
+        try {
+            return new RegExp(query, "i");
+        } catch (e) {
+            return query;
+        }
+    }
+
     // Resets the search back to a pristine state.
-    private reset():void {
+    private reset(): void {
         this._results = [];
         this._resultsCache = {};
         this._isSearching = false;

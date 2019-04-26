@@ -1,18 +1,18 @@
-import {RecursivePartial} from "./partial";
-import {IDatepickerFormatsLocaleValues, IDatepickerLocaleValues} from "./datepicker-values";
-import {ISearchLocaleValues} from "./search-values";
-import {ISearchTailoredLocaleValues, ISelectLocaleValues} from "./select-values";
+import { RecursivePartial } from "./partial";
+import { IDatepickerFormatsLocaleValues, IDatepickerLocaleValues } from "./datepicker-values";
+import { ISearchLocaleValues } from "./search-values";
+import { ISearchTailoredLocaleValues, ISelectLocaleValues } from "./select-values";
 
 export interface ILocaleValues {
-    datepicker:IDatepickerLocaleValues;
-    search:ISearchLocaleValues;
-    select:ISelectLocaleValues;
+    datepicker: IDatepickerLocaleValues;
+    search: ISearchLocaleValues;
+    select: ISelectLocaleValues;
 }
 
 export type IPartialLocaleValues = RecursivePartial<ILocaleValues>;
 
-export {RecursivePartial};
+export { RecursivePartial };
 
-export {IDatepickerLocaleValues, IDatepickerFormatsLocaleValues};
-export {ISearchLocaleValues};
-export {ISelectLocaleValues, ISearchTailoredLocaleValues};
+export { IDatepickerLocaleValues, IDatepickerFormatsLocaleValues };
+export { ISearchLocaleValues };
+export { ISelectLocaleValues, ISearchTailoredLocaleValues };

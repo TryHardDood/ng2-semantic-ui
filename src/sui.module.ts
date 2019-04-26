@@ -1,6 +1,6 @@
-import {NgModule} from "@angular/core";
+import { NgModule } from "@angular/core";
 // Collections
-import {SuiMessageModule, SuiPaginationModule} from "./collections/internal";
+import { SuiMessageModule, SuiPaginationModule } from "./collections/internal";
 // Modules
 import {
     SuiAccordionModule,
@@ -20,38 +20,39 @@ import {
     SuiTransitionModule
 } from "./modules/internal";
 // Behaviors
-import {SuiLocalizationModule} from "./behaviors/internal";
+import { SuiLocalizationModule } from "./behaviors/internal";
 // Misc
-import {SuiUtilityModule} from "./misc/internal";
+import { SuiUtilityModule } from "./misc/internal";
 
 @NgModule({
-    exports: [
-        // Collections
-        SuiMessageModule,
-        SuiPaginationModule,
+              exports: [
+                  // Collections
+                  SuiMessageModule,
+                  SuiPaginationModule,
 
-        // Modules
-        SuiAccordionModule,
-        SuiCheckboxModule,
-        SuiCollapseModule,
-        SuiDatepickerModule,
-        SuiDimmerModule,
-        SuiDropdownModule,
-        SuiModalModule,
-        SuiPopupModule,
-        SuiProgressModule,
-        SuiRatingModule,
-        SuiSearchModule,
-        SuiSelectModule,
-        SuiSidebarModule,
-        SuiTabsModule,
-        SuiTransitionModule,
+                  // Modules
+                  SuiAccordionModule,
+                  SuiCheckboxModule,
+                  SuiCollapseModule,
+                  SuiDatepickerModule,
+                  SuiDimmerModule,
+                  SuiDropdownModule,
+                  SuiModalModule,
+                  SuiPopupModule,
+                  SuiProgressModule,
+                  SuiRatingModule,
+                  SuiSearchModule,
+                  SuiSelectModule,
+                  SuiSidebarModule,
+                  SuiTabsModule,
+                  SuiTransitionModule,
 
-        // Behaviors
-        SuiLocalizationModule,
+                  // Behaviors
+                  SuiLocalizationModule,
 
-        // Misc
-        SuiUtilityModule
-    ]
-})
-export class SuiModule {}
+                  // Misc
+                  SuiUtilityModule
+              ]
+          })
+export class SuiModule {
+}

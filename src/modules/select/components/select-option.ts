@@ -11,48 +11,38 @@ import {
     ViewChild,
     ViewContainerRef
 } from "@angular/core";
-import {SuiDropdownMenuItem} from "../../dropdown/internal";
-import {HandledEvent} from "../../../misc/util/internal";
+import { SuiDropdownMenuItem } from "../../dropdown/internal";
+import { HandledEvent } from "../../../misc/util/internal";
 
 @Component({
-    selector: "sui-select-option",
-    template: `
+               selector: "sui-select-option",
+               template: `
 <span #templateSibling></span>
 <span [innerHTML]="renderedText"></span>
 `
-})
+           })
 export class SuiSelectOption<T> extends SuiDropdownMenuItem {
     // Sets the Semantic UI classes on the host element.
     @HostBinding("class.item")
-    public readonly hasClasses:boolean;
+    public readonly hasClasses: boolean;
 
     @Input()
-    public value:T;
+    public value: T;
 
     // Fires when the option is selected, whether by clicking or by keyboard.
     @Output()
-    public onSelected:EventEmitter<T>;
+    public onSelected: EventEmitter<T>;
 
     @HostBinding("class.active")
-    public isActive:boolean;
+    public isActive: boolean;
 
-    public renderedText?:string;
-
-    public set formatter(formatter:(obj:T) => string) {
-        if (!this.usesTemplate) {
-            this.renderedText = formatter(this.value);
-        } else {
-            this.renderedText = "";
-        }
-    }
-
-    public usesTemplate:boolean;
-
+    public renderedText?: string;
+    public usesTemplate: boolean;
     // Placeholder to draw template beside.
-    @ViewChild("templateSibling", { read: ViewContainerRef })
-    public templateSibling:ViewContainerRef;
+    @ViewChild("templateSibling", {read: ViewContainerRef})
+    public templateSibling: ViewContainerRef;
 
-    constructor(renderer:Renderer2, element:ElementRef, public changeDetector:ChangeDetectorRef) {
+    constructor(renderer: Renderer2, element: ElementRef, public changeDetector: ChangeDetectorRef) {
         // We inherit SuiDropdownMenuItem to automatically gain all keyboard navigation functionality.
         // This is not done via adding the .item class because it isn't supported by Angular.
         super(renderer, element);
@@ -67,8 +57,16 @@ export class SuiSelectOption<T> extends SuiDropdownMenuItem {
         this.usesTemplate = false;
     }
 
+    public set formatter(formatter: (obj: T) => string) {
+        if (!this.usesTemplate) {
+            this.renderedText = formatter(this.value);
+        } else {
+            this.renderedText = "";
+        }
+    }
+
     @HostListener("click", ["$event"])
-    public onClick(e:HandledEvent):void {
+    public onClick(e: HandledEvent): void {
         e.eventHandled = true;
 
         setTimeout(() => this.onSelected.emit(this.value));

@@ -1,29 +1,29 @@
-import {AfterContentInit, ContentChildren, Directive, ElementRef, QueryList} from "@angular/core";
-import {SuiRadio} from "../components/radio";
-import {Subscription} from "rxjs";
-import {Util} from "../../../misc/util/internal";
+import { AfterContentInit, ContentChildren, Directive, ElementRef, QueryList } from "@angular/core";
+import { SuiRadio } from "../components/radio";
+import { Subscription } from "rxjs";
+import { Util } from "../../../misc/util/internal";
 
 @Directive({
-    selector: "form:not([ngForm]):not([[ngForm]]),ngForm,[ngForm]"
-})
+               selector: "form:not([ngForm]):not([[ngForm]]),ngForm,[ngForm]"
+           })
 export class SuiRadioManager<T> implements AfterContentInit {
 
-    public isNested:boolean;
+    public isNested: boolean;
 
-    @ContentChildren(SuiRadioManager, { descendants: true })
-    private _subManagers:QueryList<SuiRadioManager<T>>;
+    @ContentChildren(SuiRadioManager, {descendants: true})
+    private _subManagers: QueryList<SuiRadioManager<T>>;
 
-    @ContentChildren(SuiRadio, { descendants: true })
-    private _renderedRadios:QueryList<SuiRadio<T>>;
+    @ContentChildren(SuiRadio, {descendants: true})
+    private _renderedRadios: QueryList<SuiRadio<T>>;
 
-    private _radioSubs:Subscription[];
+    private _radioSubs: Subscription[];
 
-    constructor(public element:ElementRef) {
+    constructor(public element: ElementRef) {
         this.isNested = false;
         this._radioSubs = [];
     }
 
-    public ngAfterContentInit():void {
+    public ngAfterContentInit(): void {
         this.updateNesting();
         this._subManagers.changes.subscribe(() => this.updateNesting());
 
@@ -31,13 +31,13 @@ export class SuiRadioManager<T> implements AfterContentInit {
         this._renderedRadios.changes.subscribe(() => this.updateRadios());
     }
 
-    private updateNesting():void {
+    private updateNesting(): void {
         this._subManagers
             .filter(m => m !== this)
             .forEach(m => m.isNested = true);
     }
 
-    private updateRadios():void {
+    private updateRadios(): void {
         this._radioSubs.forEach(s => s.unsubscribe());
         this._radioSubs = [];
 
@@ -48,10 +48,10 @@ export class SuiRadioManager<T> implements AfterContentInit {
             .forEach(g => g
                 .forEach(r => this._radioSubs
                     .push(r.onCurrentValueChange
-                        .subscribe((v:T) => {
-                            if (!this.isNested) {
-                                g.forEach(radio => radio.writeValue(v));
-                            }
-                        }))));
+                              .subscribe((v: T) => {
+                                  if (!this.isNested) {
+                                      g.forEach(radio => radio.writeValue(v));
+                                  }
+                              }))));
     }
 }

@@ -1,44 +1,44 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
-import {Transition, TransitionController, TransitionDirection} from "../../../modules/transition/internal";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Transition, TransitionController, TransitionDirection } from "../../../modules/transition/internal";
 
 export interface IMessage {
-    dismiss():void;
+    dismiss(): void;
 }
 
 @Component({
-    selector: "sui-message",
-    template: `
+               selector: "sui-message",
+               template: `
 <div class="ui message {{ class }}" *ngIf="!isDismissed" [suiTransition]="transitionController">
     <i class="close icon" *ngIf="isDismissable" (click)="dismiss()"></i>
     <ng-content></ng-content>
 </div>
 `,
-    styles: [`
+               styles: [`
 /* Fix for CSS Bug */
 .ui.icon.visible.message {
     display: flex !important;
 }
 `]
-})
+           })
 export class SuiMessage implements IMessage {
     @Input()
-    public isDismissable:boolean;
+    public isDismissable: boolean;
 
     @Output("dismiss")
-    public onDismiss:EventEmitter<SuiMessage>;
+    public onDismiss: EventEmitter<SuiMessage>;
 
-    public isDismissed:boolean;
+    public isDismissed: boolean;
 
-    public transitionController:TransitionController;
-
-    @Input()
-    public transition:string;
+    public transitionController: TransitionController;
 
     @Input()
-    public transitionDuration:number;
+    public transition: string;
+
+    @Input()
+    public transitionDuration: number;
 
     @Input("class")
-    public class:string;
+    public class: string;
 
     constructor() {
         this.isDismissable = true;
@@ -53,7 +53,7 @@ export class SuiMessage implements IMessage {
         this.class = "";
     }
 
-    public dismiss():void {
+    public dismiss(): void {
         this.transitionController.animate(new Transition(this.transition, this.transitionDuration, TransitionDirection.Out, () => {
             this.isDismissed = true;
             this.onDismiss.emit(this);

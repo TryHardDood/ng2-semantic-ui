@@ -1,19 +1,19 @@
-import {Component, Renderer2} from "@angular/core";
-import {DatePrecision, DateUtil, Util} from "../../../misc/util/internal";
-import {CalendarView, CalendarViewType} from "./calendar-view";
-import {CalendarItem} from "../directives/calendar-item";
-import {CalendarRangeService} from "../services/calendar-range.service";
+import { Component, Renderer2 } from "@angular/core";
+import { DatePrecision, DateUtil, Util } from "../../../misc/util/internal";
+import { CalendarView, CalendarViewType } from "./calendar-view";
+import { CalendarItem } from "../directives/calendar-item";
+import { CalendarRangeService } from "../services/calendar-range.service";
 
 export class CalendarRangeYearService extends CalendarRangeService {
-    public configureItem(item:CalendarItem, baseDate:Date):void {
+    public configureItem(item: CalendarItem, baseDate: Date): void {
         item.humanReadable = Util.String.padLeft(item.date.getFullYear().toString(), 4, "0");
         item.isOutsideRange = item.date.getFullYear() >= this.calcStart(baseDate).getFullYear() + 10;
     }
 }
 
 @Component({
-    selector: "sui-calendar-year-view",
-    template: `
+               selector: "sui-calendar-year-view",
+               template: `
 <table class="ui celled center aligned unstackable table three column year">
 <thead>
     <tr>
@@ -35,19 +35,19 @@ export class CalendarRangeYearService extends CalendarRangeService {
 </tbody>
 </table>
 `
-})
+           })
 export class SuiCalendarYearView extends CalendarView {
-    public get decadeStart():number {
+    constructor(renderer: Renderer2) {
+        super(renderer, CalendarViewType.Year, new CalendarRangeYearService(DatePrecision.Decade, 4, 3));
+    }
+
+    public get decadeStart(): number {
         return DateUtil
             .startOf(DatePrecision.Decade, DateUtil.clone(this.service.currentDate))
             .getFullYear();
     }
 
-    constructor(renderer:Renderer2) {
-        super(renderer, CalendarViewType.Year, new CalendarRangeYearService(DatePrecision.Decade, 4, 3));
-    }
-
-    public pad(year:number):string {
+    public pad(year: number): string {
         return Util.String.padLeft(year.toString(), 4, "0");
     }
 }

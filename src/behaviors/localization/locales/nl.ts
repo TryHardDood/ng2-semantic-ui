@@ -1,11 +1,11 @@
-import {IPartialLocaleValues} from "./interfaces/values";
+import { IPartialLocaleValues } from "./interfaces/values";
 
 /**
  * locale : Dutch (nl)
  * author : Martijn Melchers : https://github.com/martijnmelchers
  */
 
-const nl:IPartialLocaleValues = {
+const nl: IPartialLocaleValues = {
     datepicker: {
         months: [
             "Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"
@@ -22,7 +22,7 @@ const nl:IPartialLocaleValues = {
         weekdaysNarrow: [
             "Z", "M", "D", "W", "D", "V", "Z"
         ],
-		/* Dutch does not have a translation for am/pm */
+        /* Dutch does not have a translation for am/pm */
         timesOfDay: [
             "a.m.", "p.m."
         ],

@@ -1,4 +1,4 @@
-import {EventEmitter} from "@angular/core";
+import { EventEmitter } from "@angular/core";
 
 export type SidebarTransition = "overlay" | "push" | "scale down" | "uncover" | "slide along" | "slide out";
 
@@ -21,54 +21,18 @@ export const SidebarDirection = {
 };
 
 export class SidebarService {
-    public isVisible:boolean;
-    public isAnimating:boolean;
-    public wasJustOpened:boolean;
+    public isVisible: boolean;
+    public isAnimating: boolean;
+    public wasJustOpened: boolean;
 
-    public direction:SidebarDirection;
+    public direction: SidebarDirection;
+    public isVisibleChange: EventEmitter<boolean>;
+    public widthChange: EventEmitter<void>;
+    public heightChange: EventEmitter<void>;
+    public transition: SidebarTransition;
+    private _isAnimatingTimeout: number;
 
-    private _width:number;
-    private _height:number;
-
-    public get width():number {
-        if (this.direction === SidebarDirection.Left) {
-            return this._width;
-        }
-        if (this.direction === SidebarDirection.Right) {
-            return -this._width;
-        }
-        return 0;
-    }
-
-    public set width(width:number) {
-        this._width = width;
-        this.widthChange.emit();
-    }
-
-    public get height():number {
-        if (this.direction === SidebarDirection.Top) {
-            return this._height;
-        }
-        if (this.direction === SidebarDirection.Bottom) {
-            return -this._height;
-        }
-        return 0;
-    }
-
-    public set height(height:number) {
-        this._height = height;
-        this.heightChange.emit();
-    }
-
-    public isVisibleChange:EventEmitter<boolean>;
-    public widthChange:EventEmitter<void>;
-    public heightChange:EventEmitter<void>;
-
-    private _isAnimatingTimeout:number;
-
-    public transition:SidebarTransition;
-
-    constructor(isVisible:boolean = false) {
+    constructor(isVisible: boolean = false) {
         this.isVisible = isVisible;
         this.isAnimating = false;
         this.wasJustOpened = false;
@@ -83,7 +47,41 @@ export class SidebarService {
         this.transition = SidebarTransition.Uncover;
     }
 
-    public setVisibleState(isVisible:boolean):void {
+    private _width: number;
+
+    public get width(): number {
+        if (this.direction === SidebarDirection.Left) {
+            return this._width;
+        }
+        if (this.direction === SidebarDirection.Right) {
+            return -this._width;
+        }
+        return 0;
+    }
+
+    public set width(width: number) {
+        this._width = width;
+        this.widthChange.emit();
+    }
+
+    private _height: number;
+
+    public get height(): number {
+        if (this.direction === SidebarDirection.Top) {
+            return this._height;
+        }
+        if (this.direction === SidebarDirection.Bottom) {
+            return -this._height;
+        }
+        return 0;
+    }
+
+    public set height(height: number) {
+        this._height = height;
+        this.heightChange.emit();
+    }
+
+    public setVisibleState(isVisible: boolean): void {
         if (this.isVisible !== isVisible) {
             this.isVisible = isVisible;
             this.isAnimating = true;
@@ -97,7 +95,7 @@ export class SidebarService {
         }
     }
 
-    public toggleVisibleState():void {
+    public toggleVisibleState(): void {
         this.setVisibleState(!this.isVisible);
     }
 }

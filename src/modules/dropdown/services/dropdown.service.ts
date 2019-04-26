@@ -1,4 +1,4 @@
-import {EventEmitter} from "@angular/core";
+import { EventEmitter } from "@angular/core";
 
 export type DropdownAutoCloseType = "itemClick" | "outsideClick" | "disabled";
 
@@ -11,26 +11,23 @@ export const DropdownAutoCloseType = {
 
 export class DropdownService {
     // Open state of the dropdown
-    public isOpen:boolean;
+    public isOpen: boolean;
     // Animating state of the dropdown.
-    public isAnimating:boolean;
+    public isAnimating: boolean;
     // Emitter for when dropdown open state changes.
-    public isOpenChange:EventEmitter<boolean>;
+    public isOpenChange: EventEmitter<boolean>;
 
-    public isDisabled:boolean;
+    public isDisabled: boolean;
 
     // Sets the "autoclose" mode of the dropdown - i.e. what user action causes it to autoclose.
-    public autoCloseMode:DropdownAutoCloseType;
+    public autoCloseMode: DropdownAutoCloseType;
 
     // Keep track of the containing dropdown so we can open it as necessary.
-    public parent?:DropdownService;
+    public parent?: DropdownService;
     // Also keep track of dropdowns nested in this one so we can close them as necessary.
-    public children:DropdownService[];
-    public get isNested():boolean {
-        return !!this.parent;
-    }
+    public children: DropdownService[];
 
-    constructor(autoCloseMode:DropdownAutoCloseType = DropdownAutoCloseType.ItemClick) {
+    constructor(autoCloseMode: DropdownAutoCloseType = DropdownAutoCloseType.ItemClick) {
         this.isOpen = false;
         this.isOpenChange = new EventEmitter<boolean>();
 
@@ -41,7 +38,11 @@ export class DropdownService {
         this.children = [];
     }
 
-    public setOpenState(isOpen:boolean, reflectInParent:boolean = false):void {
+    public get isNested(): boolean {
+        return !!this.parent;
+    }
+
+    public setOpenState(isOpen: boolean, reflectInParent: boolean = false): void {
         if (this.isOpen !== isOpen && !this.isDisabled) {
             // Only update the state if it has changed, and the dropdown isn't disabled.
             this.isOpen = !!isOpen;
@@ -64,7 +65,7 @@ export class DropdownService {
         }
     }
 
-    public setDisabledState(isDisabled:boolean):void {
+    public setDisabledState(isDisabled: boolean): void {
         if (this.isDisabled !== isDisabled) {
             if (!!isDisabled) {
                 // Close the dropdown as it is now disabled
@@ -75,12 +76,12 @@ export class DropdownService {
         }
     }
 
-    public toggleOpenState():void {
+    public toggleOpenState(): void {
         this.setOpenState(!this.isOpen);
     }
 
     // Registers a dropdown service as a child of this service.
-    public registerChild(child:DropdownService):void {
+    public registerChild(child: DropdownService): void {
         if (!this.isChildRegistered(child)) {
             this.children.push(child);
             child.parent = this;
@@ -88,14 +89,14 @@ export class DropdownService {
     }
 
     // Recursive method to check if the provided dropdown is already registered as a child, or is a descendant of a child.
-    public isChildRegistered(child:DropdownService):boolean {
+    public isChildRegistered(child: DropdownService): boolean {
         return this === child || !!this.children
             .find(c => !!c.children
                 .find(cChild => cChild.isChildRegistered(child)));
     }
 
     // Wipes any nested data, so all services can be cleanly reattached.
-    public clearChildren():void {
+    public clearChildren(): void {
         this.children.forEach(c => {
             c.parent = undefined;
         });
@@ -103,7 +104,7 @@ export class DropdownService {
     }
 
     // Method for delaying an event into the next tick, to avoid Angular "changed after checked" error.
-    private delay(callback:() => void):void {
+    private delay(callback: () => void): void {
         setTimeout(() => callback());
     }
 }

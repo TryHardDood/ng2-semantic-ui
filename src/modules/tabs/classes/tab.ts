@@ -1,13 +1,13 @@
-import {SuiTabHeader} from "../directives/tab-header";
-import {SuiTabContent} from "../directives/tab-content";
+import { SuiTabHeader } from "../directives/tab-header";
+import { SuiTabContent } from "../directives/tab-content";
 
 export class Tab {
-    public id:string;
-    public header:SuiTabHeader;
-    public content:SuiTabContent;
-    public index:number;
+    public id: string;
+    public header: SuiTabHeader;
+    public content: SuiTabContent;
+    public index: number;
 
-    constructor(header:SuiTabHeader, content:SuiTabContent) {
+    constructor(header: SuiTabHeader, content: SuiTabContent) {
         this.id = header.id;
         this.header = header;
         this.content = content;
@@ -18,17 +18,17 @@ export class Tab {
     }
 
     // Saves accessing .header.isActive every time.
-    public get isActive():boolean {
+    public get isActive(): boolean {
         return this.header.isActive;
     }
 
-    public set isActive(active:boolean) {
+    public set isActive(active: boolean) {
         // Use `setActiveState` so as not to fire 'external changes' event.
         this.header.setActiveState(active);
     }
 
     // Saves accessing .header.isDisabled every time.
-    public get isDisabled():boolean {
+    public get isDisabled(): boolean {
         return this.header.isDisabled;
     }
 }

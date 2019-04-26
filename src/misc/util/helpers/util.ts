@@ -12,38 +12,42 @@ export enum KeyCode {
     Backspace = 8
 }
 
-interface IRecursiveObject { [name:string]:IRecursiveObject; }
+interface IRecursiveObject {
+    [name: string]: IRecursiveObject;
+}
 
-export interface ITemplateRefContext<T> { $implicit:T; }
+export interface ITemplateRefContext<T> {
+    $implicit: T;
+}
 
 export interface IAugmentedElement extends Element {
-    closest(selector:string):IAugmentedElement;
+    closest(selector: string): IAugmentedElement;
 }
 
 export class HandledEvent {
-    public eventHandled:boolean;
+    public eventHandled: boolean;
 }
 
 export interface IDynamicClasses {
-    [name:string]:true;
+    [name: string]: true;
 }
 
 export const Util = {
     Array: {
-        range(n:number, offset:number = 0):number[] {
+        range(n: number, offset: number = 0): number[] {
             return Array(n).fill(0).map((z, i) => i + offset);
         },
-        group<T>(items:T[], groupLength:number):T[][] {
+        group<T>(items: T[], groupLength: number): T[][] {
             const mutable = items.slice(0);
 
-            const groups:T[][] = [];
+            const groups: T[][] = [];
             while (mutable.length > 0) {
                 groups.push(mutable.splice(0, groupLength));
             }
             return groups;
         },
-        groupBy<T>(items:T[], field:keyof T):{ [name:string]:T[] } {
-            return items.reduce<{ [name:string]:T[] }>(
+        groupBy<T>(items: T[], field: keyof T): { [name: string]: T[] } {
+            return items.reduce<{ [name: string]: T[] }>(
                 (groups, i) => {
                     const fieldValue = i[field].toString();
                     groups[fieldValue] = groups[fieldValue] || [];
@@ -52,13 +56,13 @@ export const Util = {
                 },
                 Object());
         },
-        flatten<T>(items:T[][]):T[] {
+        flatten<T>(items: T[][]): T[] {
             return items.reduce((is, i) => is.concat(i), []);
         }
     },
 
     String: {
-        padLeft(str:string, length:number, padding:string):string {
+        padLeft(str: string, length: number, padding: string): string {
             let s = str;
             while (s.length < length) {
                 s = padding + s;
@@ -68,7 +72,7 @@ export const Util = {
     },
 
     DOM: {
-        parseBooleanAttribute(attributeValue:boolean):boolean {
+        parseBooleanAttribute(attributeValue: boolean): boolean {
             let value = attributeValue;
             if (typeof attributeValue === "string") {
                 value = true;
@@ -79,7 +83,7 @@ export const Util = {
     },
 
     Object: {
-        readValue<T, U>(object:T, path?:string):U {
+        readValue<T, U>(object: T, path?: string): U {
             if (!path) {
                 return object as any as U;
             }
@@ -95,16 +99,16 @@ export const Util = {
     },
 
     Math: {
-        round(r:number, n:number):number {
+        round(r: number, n: number): number {
             return Math.round(r / n) * n;
         },
-        roundUp(r:number, n:number):number {
+        roundUp(r: number, n: number): number {
             return Math.ceil(r / n) * n;
         },
-        roundDown(r:number, n:number):number {
+        roundDown(r: number, n: number): number {
             return Math.floor(r / n) * n;
         },
-        mod(r:number, n:number):number {
+        mod(r: number, n: number): number {
             const rem = r % n;
             if (rem < 0) {
                 return rem + n;

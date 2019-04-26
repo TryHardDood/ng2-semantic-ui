@@ -1,46 +1,58 @@
-import {
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    EventEmitter,
-    HostBinding,
-    HostListener,
-    Input,
-    Output,
-    Renderer2
-} from "@angular/core";
-import {SuiTransition, Transition, TransitionController, TransitionDirection} from "../../transition/internal";
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, Output, Renderer2 } from "@angular/core";
+import { SuiTransition, Transition, TransitionController, TransitionDirection } from "../../transition/internal";
 
 @Component({
-    selector: "sui-dimmer",
-    template: `
+               selector: "sui-dimmer",
+               template: `
 <div [class.content]="wrapContent">
     <ng-content></ng-content>
 </div>
 `,
-    styles: [`
+               styles: [`
 :host.dimmer:not(.hidden) {
     transition: none;
     display: flex !important;
 }
 `]
-})
+           })
 export class SuiDimmer extends SuiTransition {
     @HostBinding("class.ui")
     @HostBinding("class.dimmer")
-    public readonly hasClasses:boolean;
+    public readonly hasClasses: boolean;
+    @Output()
+    public isDimmedChange: EventEmitter<boolean>;
+    @Input()
+    public isClickable: boolean;
+    @Input()
+    public transition: string;
+    @Input()
+    public transitionDuration: number;
+    /* Internal for now */
+    @Input()
+    public wrapContent: boolean;
+    private _transitionController: TransitionController;
 
-    private _transitionController:TransitionController;
+    constructor(renderer: Renderer2, element: ElementRef, changeDetector: ChangeDetectorRef) {
+        super(renderer, element, changeDetector);
 
-    private _isDimmed:boolean;
+        this._isDimmed = false;
+        this.isDimmedChange = new EventEmitter<boolean>();
+        this.isClickable = true;
+
+        this.wrapContent = true;
+
+        this.hasClasses = true;
+    }
+
+    private _isDimmed: boolean;
 
     @HostBinding("class.active")
     @Input()
-    public get isDimmed():boolean {
+    public get isDimmed(): boolean {
         return this._isDimmed;
     }
 
-    public set isDimmed(value:boolean) {
+    public set isDimmed(value: boolean) {
         const isDimmed = !!value;
 
         if (!this._transitionController) {
@@ -60,36 +72,8 @@ export class SuiDimmer extends SuiTransition {
         }
     }
 
-    @Output()
-    public isDimmedChange:EventEmitter<boolean>;
-
-    @Input()
-    public isClickable:boolean;
-
-    @Input()
-    public transition:string;
-
-    @Input()
-    public transitionDuration:number;
-
-    /* Internal for now */
-    @Input()
-    public wrapContent:boolean;
-
-    constructor(renderer:Renderer2, element:ElementRef, changeDetector:ChangeDetectorRef) {
-        super(renderer, element, changeDetector);
-
-        this._isDimmed = false;
-        this.isDimmedChange = new EventEmitter<boolean>();
-        this.isClickable = true;
-
-        this.wrapContent = true;
-
-        this.hasClasses = true;
-    }
-
     @HostListener("click")
-    public onClick():void {
+    public onClick(): void {
         if (this.isClickable) {
             this.isDimmed = false;
             this.isDimmedChange.emit(this.isDimmed);

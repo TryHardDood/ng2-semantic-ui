@@ -1,6 +1,6 @@
-import {ILocaleValues} from "./interfaces/values";
+import { ILocaleValues } from "./interfaces/values";
 
-const enGB:ILocaleValues = {
+const enGB: ILocaleValues = {
     datepicker: {
         months: [
             "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"

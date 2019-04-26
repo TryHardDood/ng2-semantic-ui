@@ -1,39 +1,32 @@
-import {CalendarMode} from "../services/calendar.service";
-import {
-    CalendarMappings,
-    DateMappings,
-    DatetimeMappings,
-    MonthMappings,
-    TimeMappings,
-    YearMappings
-} from "./calendar-mappings";
-import {DatePrecision, DateUtil} from "../../../misc/util/internal";
+import { CalendarMode } from "../services/calendar.service";
+import { CalendarMappings, DateMappings, DatetimeMappings, MonthMappings, TimeMappings, YearMappings } from "./calendar-mappings";
+import { DatePrecision, DateUtil } from "../../../misc/util/internal";
 
 export abstract class CalendarConfig {
-    public mode:CalendarMode;
-    public precision:DatePrecision;
-    public mappings:CalendarMappings;
+    public mode: CalendarMode;
+    public precision: DatePrecision;
+    public mappings: CalendarMappings;
 
-    public fallback:string;
+    public fallback: string;
 
-    public dateMinBound?:Date;
-    public dateMaxBound?:Date;
+    public dateMinBound?: Date;
+    public dateMaxBound?: Date;
 
-    constructor(mode:CalendarMode, precision:DatePrecision, mappings:CalendarMappings, fallback:string) {
+    constructor(mode: CalendarMode, precision: DatePrecision, mappings: CalendarMappings, fallback: string) {
         this.mode = mode;
         this.precision = precision;
         this.mappings = mappings;
         this.fallback = fallback;
     }
 
-    public updateBounds(providedDate:Date):void {
+    public updateBounds(providedDate: Date): void {
         this.dateMinBound = DateUtil.startOf(DatePrecision.Year, new Date(), true);
         this.dateMinBound.setFullYear(0);
     }
 }
 
 export class DateConfigBase extends CalendarConfig {
-    constructor(precision:DatePrecision, mappings:CalendarMappings, fallback:string) {
+    constructor(precision: DatePrecision, mappings: CalendarMappings, fallback: string) {
         super(CalendarMode.DateOnly, precision, mappings, fallback);
     }
 }
@@ -84,7 +77,7 @@ export class TimeConfig extends CalendarConfig {
             "time");
     }
 
-    public updateBounds(providedDate:Date):void {
+    public updateBounds(providedDate: Date): void {
         this.dateMaxBound = DateUtil.endOf(DatePrecision.Date, DateUtil.clone(providedDate));
         this.dateMinBound = DateUtil.previous(DatePrecision.Date, DateUtil.clone(this.dateMaxBound));
     }

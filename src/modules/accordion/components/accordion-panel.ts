@@ -1,11 +1,11 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, Output} from "@angular/core";
-import {SuiAccordionService} from "../services/accordion.service";
-import {Transition, TransitionController} from "../../transition/internal";
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from "@angular/core";
+import { SuiAccordionService } from "../services/accordion.service";
+import { Transition, TransitionController } from "../../transition/internal";
 
 @Component({
-    selector: "sui-accordion-panel",
-    exportAs: "suiAccordionPanel",
-    template: `
+               selector: "sui-accordion-panel",
+               exportAs: "suiAccordionPanel",
+               template: `
 <!-- Title -->
 <div class="title" [class.active]="isOpen" (click)="toggle()" >
     <ng-content select="[title]"></ng-content>
@@ -17,7 +17,7 @@ import {Transition, TransitionController} from "../../transition/internal";
     </div>
 </div>
 `,
-    styles: [`
+               styles: [`
 /* Manual style as Semantic UI relies on > selector */
 .content {
     padding: .5em 0 1em;
@@ -28,28 +28,36 @@ import {Transition, TransitionController} from "../../transition/internal";
     border-top: none;
 }
 `]
-})
+           })
 export class SuiAccordionPanel {
-    private _service:SuiAccordionService;
+    public transitionController: TransitionController;
+    @Input()
+    public isDisabled: boolean;
+    @Output()
+    public isOpenChange: EventEmitter<boolean>;
 
-    public transitionController:TransitionController;
+    constructor(private _changeDetector: ChangeDetectorRef) {
+        this.transitionController = new TransitionController(false);
 
-    public set service(service:SuiAccordionService) {
+        this._isOpen = false;
+        this.isOpenChange = new EventEmitter<boolean>(false);
+    }
+
+    private _service: SuiAccordionService;
+
+    public set service(service: SuiAccordionService) {
         this._service = service;
         this._changeDetector.detectChanges();
     }
 
-    @Input()
-    public isDisabled:boolean;
-
-    private _isOpen:boolean;
+    private _isOpen: boolean;
 
     @Input()
-    public get isOpen():boolean {
+    public get isOpen(): boolean {
         return this._isOpen;
     }
 
-    public set isOpen(value:boolean) {
+    public set isOpen(value: boolean) {
         // Convert to boolean (fixes false != undefined)
         const isOpen = !!value;
 
@@ -69,7 +77,7 @@ export class SuiAccordionPanel {
         }
     }
 
-    public get transition():string {
+    public get transition(): string {
         if (this._service) {
             return this._service.transition;
         }
@@ -77,7 +85,7 @@ export class SuiAccordionPanel {
         return "fade";
     }
 
-    public get transitionDuration():number {
+    public get transitionDuration(): number {
         if (this._service) {
             // Return the service defined transition duration.
             return this._service.transitionDuration;
@@ -86,17 +94,7 @@ export class SuiAccordionPanel {
         return 0;
     }
 
-    @Output()
-    public isOpenChange:EventEmitter<boolean>;
-
-    constructor(private _changeDetector:ChangeDetectorRef) {
-        this.transitionController = new TransitionController(false);
-
-        this._isOpen = false;
-        this.isOpenChange = new EventEmitter<boolean>(false);
-    }
-
-    public toggle():void {
+    public toggle(): void {
         if (!this.isDisabled) {
             this.isOpen = !this.isOpen;
         }

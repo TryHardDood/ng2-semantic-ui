@@ -7,31 +7,20 @@ export enum TransitionDirection {
 }
 
 export class Transition {
-    public readonly type:string;
+    public readonly type: string;
 
-    public readonly duration:number;
+    public readonly duration: number;
 
-    public direction:TransitionDirection;
-
-    // Converts TransitionDirection to class name.
-    public get directionClass():string {
-        switch (this.direction) {
-            case TransitionDirection.In: return "in";
-            case TransitionDirection.Out: return "out";
-        }
-
-        return "";
-    }
-
+    public direction: TransitionDirection;
     // Stores the individual classes for the transition, e.g. "fade out" -> ["fade", "out"].
-    public readonly classes:string[];
+    public readonly classes: string[];
+    public onComplete: () => void;
 
-    public onComplete:() => void;
-
-    constructor(name:string,
-                duration:number = 250,
-                direction:TransitionDirection = TransitionDirection.Either,
-                onComplete:(() => void) = () => {}) {
+    constructor(name: string,
+                duration: number = 250,
+                direction: TransitionDirection = TransitionDirection.Either,
+                onComplete: (() => void) = () => {
+                }) {
 
         this.type = name;
 
@@ -42,5 +31,17 @@ export class Transition {
         this.direction = direction;
         this.classes = this.type.split(" ");
         this.onComplete = onComplete;
+    }
+
+    // Converts TransitionDirection to class name.
+    public get directionClass(): string {
+        switch (this.direction) {
+            case TransitionDirection.In:
+                return "in";
+            case TransitionDirection.Out:
+                return "out";
+        }
+
+        return "";
     }
 }

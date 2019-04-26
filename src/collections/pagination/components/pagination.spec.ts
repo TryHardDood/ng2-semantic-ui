@@ -1,15 +1,15 @@
-import {Component, DebugElement} from "@angular/core";
-import {ComponentFixture, TestBed} from "@angular/core/testing";
-import {By} from "@angular/platform-browser";
+import { Component, DebugElement } from "@angular/core";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
 
-import {SuiPagination} from "./pagination";
-import {SuiPaginationModule} from "../pagination.module";
+import { SuiPagination } from "./pagination";
+import { SuiPaginationModule } from "../pagination.module";
 
 /**
  * TestHostComponent
  */
 @Component({
-    template: `
+               template: `
 <sui-pagination 
     [collectionSize]="collectionSize" 
     [pageSize]="pageSize"
@@ -17,12 +17,12 @@ import {SuiPaginationModule} from "../pagination.module";
     [(page)]="currentPage"
     ></sui-pagination>
 `
-})
+           })
 export class TestHostComponent {
-    public collectionSize:number;
-    public pageSize:number;
-    public maxSize?:number;
-    public currentPage:number;
+    public collectionSize: number;
+    public pageSize: number;
+    public maxSize?: number;
+    public currentPage: number;
 
     constructor() {
         this.collectionSize = 10;
@@ -35,16 +35,16 @@ export class TestHostComponent {
 
 describe("Pagination", () => {
 
-    let comp:TestHostComponent;
-    let fixture:ComponentFixture<TestHostComponent>;
-    let pagination:SuiPagination;
-    let paginationElement:DebugElement;
+    let comp: TestHostComponent;
+    let fixture: ComponentFixture<TestHostComponent>;
+    let pagination: SuiPagination;
+    let paginationElement: DebugElement;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [SuiPaginationModule],
-            declarations: [TestHostComponent] // declare the test component
-        });
+                                           imports: [SuiPaginationModule],
+                                           declarations: [TestHostComponent] // declare the test component
+                                       });
 
         fixture = TestBed.createComponent(TestHostComponent);
         comp = fixture.componentInstance; // TestHostComponent test instance

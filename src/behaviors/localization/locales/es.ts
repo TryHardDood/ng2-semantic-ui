@@ -1,11 +1,11 @@
-import {IPartialLocaleValues} from "./interfaces/values";
+import { IPartialLocaleValues } from "./interfaces/values";
 
 /**
  * locale : Spanish (es)
  * author : Facundo Donato : https://github.com/genuinefafa
  */
 
-const es:IPartialLocaleValues = {
+const es: IPartialLocaleValues = {
     datepicker: {
         months: [
             "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"

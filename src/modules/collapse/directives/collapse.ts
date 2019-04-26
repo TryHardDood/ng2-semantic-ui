@@ -1,56 +1,15 @@
-import {Directive, ElementRef, HostBinding, Input, Renderer2} from "@angular/core";
+import { Directive, ElementRef, HostBinding, Input, Renderer2 } from "@angular/core";
 
 @Directive({
-    selector: "[suiCollapse]"
-})
+               selector: "[suiCollapse]"
+           })
 export class SuiCollapse {
-    // Set when the collapse is open, and not animating.
-    @HostBinding("class.expanded")
-    public get isExpanded():boolean {
-        return this._isExpanded;
-    }
-
-    private _isExpanded:boolean;
-
-    // Set when the collapse is closed, and not animating.
-    @HostBinding("class.collapsed")
-    public get isCollapsed():boolean {
-        return !this.isExpanded && !this.isCollapsing;
-    }
-
-    // Set when the collapse is animating.
-    @HostBinding("class.collapsing")
-    public get isCollapsing():boolean {
-        return this._isCollapsing;
-    }
-
-    private _isCollapsing:boolean;
-
+    @Input()
+    public collapseDuration: number;
     // Flag that is initially true, to make the 1st animation instantaneous.
-    private _pristine:boolean;
+    private _pristine: boolean;
 
-    @Input()
-    public get suiCollapse():boolean {
-        return this._isExpanded;
-    }
-
-    // Sets the state of the collapse, `true` is collapsed.
-    public set suiCollapse(value:boolean) {
-        if (value) {
-            this.hide();
-        } else {
-            this.show();
-        }
-    }
-
-    @Input()
-    public collapseDuration:number;
-
-    private get _animationDuration():number {
-        return this._pristine ? 0 : this.collapseDuration;
-    }
-
-    public constructor(private _element:ElementRef, private _renderer:Renderer2) {
+    public constructor(private _element: ElementRef, private _renderer: Renderer2) {
         this._pristine = true;
 
         // Collapse animation duration is 350ms by default.
@@ -60,7 +19,47 @@ export class SuiCollapse {
         this._isCollapsing = false;
     }
 
-    public hide():void {
+    private _isExpanded: boolean;
+
+    // Set when the collapse is open, and not animating.
+    @HostBinding("class.expanded")
+    public get isExpanded(): boolean {
+        return this._isExpanded;
+    }
+
+    // Set when the collapse is closed, and not animating.
+    @HostBinding("class.collapsed")
+    public get isCollapsed(): boolean {
+        return !this.isExpanded && !this.isCollapsing;
+    }
+
+    private _isCollapsing: boolean;
+
+    // Set when the collapse is animating.
+    @HostBinding("class.collapsing")
+    public get isCollapsing(): boolean {
+        return this._isCollapsing;
+    }
+
+    @Input()
+    public get suiCollapse(): boolean {
+        return this._isExpanded;
+    }
+
+    // Sets the state of the collapse, `true` is collapsed.
+    public set suiCollapse(value: boolean) {
+        if (value) {
+            this.hide();
+        } else {
+            this.show();
+        }
+    }
+
+    private get _animationDuration(): number {
+        return this._pristine ? 0 : this.collapseDuration;
+    }
+
+    public hide(): void {
         this._isCollapsing = true;
         this._isExpanded = false;
 
@@ -73,7 +72,7 @@ export class SuiCollapse {
         });
     }
 
-    public show():void {
+    public show(): void {
         this._isCollapsing = true;
 
         // Animate the host element from its offset height to its scroll height.
@@ -86,7 +85,8 @@ export class SuiCollapse {
         });
     }
 
-    private animate(startHeight:number, endHeight:number, removeOnComplete:boolean = false, callback:() => void = () => {}):void {
+    private animate(startHeight: number, endHeight: number, removeOnComplete: boolean = false, callback: () => void = () => {
+    }): void {
         const heightFrames = [
             {
                 offset: 0,
@@ -100,9 +100,9 @@ export class SuiCollapse {
 
         if (removeOnComplete) {
             heightFrames.push({
-                offset: 1,
-                height: `auto`
-            });
+                                  offset: 1,
+                                  height: `auto`
+                              });
         }
 
         // Animate the collapse using the web animations API.

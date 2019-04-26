@@ -1,15 +1,15 @@
-import {Component, Directive, EventEmitter, HostBinding, HostListener, Input, Output} from "@angular/core";
-import {CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHost} from "../../../misc/util/internal";
+import { Component, Directive, EventEmitter, HostBinding, HostListener, Input, Output } from "@angular/core";
+import { CustomValueAccessor, customValueAccessorFactory, ICustomValueAccessorHost } from "../../../misc/util/internal";
 
 @Component({
-    selector: "sui-rating",
-    template: `<i *ngFor="let icon of icons; let i = index" class="icon {{type}}" (mouseover)="onMouseover(i)" (click)="onClick(i)" [class.selected]="hoveredIndex >= i && !isReadonly" [class.active]="value > i"></i>`,
-    styles: [`
+               selector: "sui-rating",
+               template: `<i *ngFor="let icon of icons; let i = index" class="icon {{type}}" (mouseover)="onMouseover(i)" (click)="onClick(i)" [class.selected]="hoveredIndex >= i && !isReadonly" [class.active]="value > i"></i>`,
+               styles: [`
 :host.read-only .icon {
     cursor: auto
 }
 `]
-})
+           })
 export class SuiRating implements ICustomValueAccessorHost<number> {
     @HostBinding("class.ui")
     @HostBinding("class.rating")
@@ -19,6 +19,21 @@ export class SuiRating implements ICustomValueAccessorHost<number> {
 
     @Output()
     public valueChange: EventEmitter<number>;
+    @HostBinding("class.read-only")
+    @Input()
+    public isReadonly: boolean;
+    public hoveredIndex: number = -1;
+
+    constructor() {
+        this.value = 0;
+        this.valueChange = new EventEmitter<number>();
+
+        this.type = 'star';
+        this.maximum = 5;
+        this.isReadonly = false;
+
+        this.hasClasses = true;
+    }
 
     private _type: string;
 
@@ -42,26 +57,9 @@ export class SuiRating implements ICustomValueAccessorHost<number> {
         this._maximum = +value;
     }
 
-    @HostBinding("class.read-only")
-    @Input()
-    public isReadonly: boolean;
-
     public get icons(): undefined[] {
         // tslint:disable-next-line:prefer-literal
         return new Array(this.maximum);
-    }
-
-    public hoveredIndex: number = -1;
-
-    constructor() {
-        this.value = 0;
-        this.valueChange = new EventEmitter<number>();
-
-        this.type = 'star';
-        this.maximum = 5;
-        this.isReadonly = false;
-
-        this.hasClasses = true;
     }
 
     public onClick(i: number): void {
@@ -86,10 +84,10 @@ export class SuiRating implements ICustomValueAccessorHost<number> {
 }
 
 @Directive({
-    selector: "sui-rating",
-    host: { "(valueChange)": "onChange($event)" },
-    providers: [customValueAccessorFactory(SuiRatingValueAccessor)]
-})
+               selector: "sui-rating",
+               host: {"(valueChange)": "onChange($event)"},
+               providers: [customValueAccessorFactory(SuiRatingValueAccessor)]
+           })
 export class SuiRatingValueAccessor extends CustomValueAccessor<number, SuiRating> {
     constructor(host: SuiRating) {
         super(host);
