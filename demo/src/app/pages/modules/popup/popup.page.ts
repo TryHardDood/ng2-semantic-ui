@@ -1,6 +1,6 @@
-import {Component, Input} from "@angular/core";
-import {ApiDefinition} from "../../../components/api/api.component";
-import {SuiPopupConfig} from "ngx-fomantic-ui";
+import { Component, Input } from "@angular/core";
+import { ApiDefinition } from "../../../components/api/api.component";
+import { SuiPopupConfig } from "ngx-fomantic-ui";
 
 const exampleStandardTemplate = `
 <button class="ui green icon button" suiPopup popupHeader="Example" popupText="This is an example popup">
@@ -204,7 +204,7 @@ export class PopupPage {
         "right bottom"
     ];
 
-    public position:string = "bottom right";
+    public position:string = "top right";
 
     public manualPopupMarkup:string = `
 <div class="ui segment" suiPopup popupText="Manual" popupTrigger="manual" #popup="suiPopup">

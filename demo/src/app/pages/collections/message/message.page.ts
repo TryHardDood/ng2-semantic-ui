@@ -1,5 +1,6 @@
-import {Component} from "@angular/core";
-import {ApiDefinition} from "../../../components/api/api.component";
+import { Component } from "@angular/core";
+import { ApiDefinition } from "../../../components/api/api.component";
+import { MessageState, MessagePosition, MessageConfig, MessageController, SuiMessageService } from "ngx-fomantic-ui";
 
 const exampleStandardTemplate = `
 <sui-message class="success">
@@ -11,7 +12,7 @@ const exampleStandardTemplate = `
 `;
 
 const exampleNoDismissTemplate = `
-<sui-message class="attached warning" [isDismissable]="false">
+<sui-message class="attached warning" [hasDismissButton]="false">
     <div class="header">
         Attached message!
     </div>
@@ -39,12 +40,13 @@ const exampleIconTemplate = `
     templateUrl: "./message.page.html"
 })
 export class MessagePage {
+    public controller:MessageController;
     public api:ApiDefinition = [
         {
             selector: "<sui-message>",
             properties: [
                 {
-                    name: "isDismissable",
+                    name: "hasDismissButton",
                     type: "boolean",
                     description: "Sets whether or not the message has a dismiss button.",
                     defaultValue: "true"
@@ -75,6 +77,25 @@ export class MessagePage {
     public exampleNoDismissTemplate:string = exampleNoDismissTemplate;
     public exampleIconTemplate:string = exampleIconTemplate;
 
+    public notificationMarkup:string = `
+<sui-message-container [controller]="controller"></sui-message-container>
+
+<button class="ui button" (click)="open()">Open notification</button>`;
+
+    public notificationMarkup2:string = `
+constructor(private _messageService:SuiMessageService) {
+    this.controller = new MessageController();
+    this._messageService.position = MessagePosition.BottomRight;
+    this._messageService.isNewestOnTop = true;
+}
+
+public open():void {
+    const message = new MessageConfig(Date.now().toString(), MessageState.Default, "Header");
+    message.hasProgress = true;
+    this.controller.show(message);
+    this._messageService.show(message);
+}`;
+
     public manualDismissMarkup:string = `
 <sui-message #message>
     <div class="header">
@@ -96,6 +117,28 @@ export class MyComponent {
     }
 }
 `;
+    public headerInput:string;
+    public messageInput:string;
+
+    constructor(private _messageService:SuiMessageService) {
+        this.controller = new MessageController();
+        this._messageService.position = MessagePosition.BottomRight;
+        this._messageService.isNewestOnTop = true;
+    }
+
+    public open():void {
+        const message = new MessageConfig(Date.now().toString(), MessageState.Default, "Header");
+        message.hasProgress = true;
+        this.controller.show(message);
+        this._messageService.show(message);
+    }
+
+    public openCustom():void {
+        const message = new MessageConfig(this.messageInput, MessageState.Default, this.headerInput);
+        message.hasProgress = true;
+        this.controller.show(message);
+        this._messageService.show(message);
+    }
 }
 
 @Component({
