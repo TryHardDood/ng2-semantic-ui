@@ -12,6 +12,9 @@
 
 <!-- Badges -->
 <p align="center">
+  <a href="https://gitter.im/ngx-fomantic-ui/development">
+    <img alt="Gitter" src="https://img.shields.io/gitter/room/ng2-semantic-ui/Lobby.js.svg?style=flat-square" />
+  </a>
   <a href="https://www.npmjs.com/package/ngx-fomantic-ui">
     <img alt="npm" src="https://img.shields.io/npm/v/ngx-fomantic-ui.svg?style=flat-square" />
   </a>
