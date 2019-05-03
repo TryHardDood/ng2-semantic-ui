@@ -9,7 +9,7 @@ export class CustomValueAccessor<U, T extends ICustomValueAccessorHost<U>> imple
     constructor(private _host: T) {
     }
 
-    public onChange = () => {
+    public onChange = (event: Event) => {
     };
     public onTouched = () => {
     };
