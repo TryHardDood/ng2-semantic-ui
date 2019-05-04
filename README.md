@@ -1,27 +1,96 @@
-# FomanticUi
+<!-- Logo -->
+<p align="center">
+  <a href="https://tryharddood.github.io/ngx-fomantic-ui/">
+    <img height="128" width="238" src="https://raw.githubusercontent.com/tryharddood/ngx-fomantic-ui/master/demo/src/assets/logo.png">
+  </a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+<!-- Name -->
+<h1 align="center">
+  <a href="https://tryharddood.github.io/ngx-fomantic-ui">ngx-fomantic-ui</a>
+</h1>
 
-## Development server
+<!-- Badges -->
+<p align="center">
+  <a href="https://gitter.im/ngx-fomantic-ui/development">
+    <img alt="Gitter" src="https://img.shields.io/gitter/room/ng2-semantic-ui/Lobby.js.svg?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/ngx-fomantic-ui">
+    <img alt="npm" src="https://img.shields.io/npm/v/ngx-fomantic-ui.svg?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/ngx-fomantic-ui">
+    <img alt="monthly downloads" src="https://img.shields.io/npm/dm/ngx-fomantic-ui.svg?style=flat-square" />
+  </a>
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Fomantic UI Angular Integrations, written in pure Angular - **no JQuery required**.
 
-## Code scaffolding
+## Introduction
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular and jQuery don't go together - this is the fundamental principal of this library. It provides Angular component versions of the Fomantic UI modules, so that you don't need to add jQuery to your app.
 
-## Build
+Note that only Fomantic UI elements that use jQuery are recreated here - those written purely in CSS aren't included as they can be used in Angular apps already.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Installation & Usage
 
-## Running unit tests
+See the [Documentation](https://tryharddood.github.io/ngx-fomantic-ui) for installation instructions and extensive examples.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Dependencies
 
-## Running end-to-end tests
+* [Angular](https://angular.io) (^7.0.0)
+* [Fomantic UI CSS](http://fomantic-ui.com/) (^2.7.4) (jQuery is **not** required)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Component Support
 
-## Further help
+|           Icon          |                                      Description                                    |
+|-------------------------|-------------------------------------------------------------------------------------|
+| :white_check_mark:      | Component supported by ngx-fomantic-ui.                                             |
+| :rocket:                | Fomantic UI plugin supported by ngx-fomantic-ui (not in Fomantic UI Core).          |
+| :ballot_box_with_check: | Component supported natively by [Fomantic UI](https://fomantic-ui.com/) (CSS only). |
+| :x:                     | Component currently unavailable.                                                    |
+| :no_entry_sign:         | Component not applicable to Angular.                                                |
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+|              Elements              |            Collections             |                   Views                  |              Modules              |              Behaviors              |
+|------------------------------------|------------------------------------|------------------------------------------|-----------------------------------|-------------------------------------|
+| :ballot_box_with_check: Button     | :ballot_box_with_check: Breadcrumb | :ballot_box_with_check: Advertisment     | :white_check_mark: Accordion      | :no_entry_sign: API                 |
+| :ballot_box_with_check: Container  | :ballot_box_with_check: Form       | :ballot_box_with_check: Card             | :white_check_mark: Checkbox       | :no_entry_sign: Form Validation     |
+| :ballot_box_with_check: Divider    | :ballot_box_with_check: Grid       | :ballot_box_with_check: Comment          | :rocket: Collapse                 | :rocket: Localization               |
+| :ballot_box_with_check: Flag       | :ballot_box_with_check: Menu       | :ballot_box_with_check: Feed             | :rocket: Datepicker               | :x: Visibiltiy                      |
+| :ballot_box_with_check: Header     | :white_check_mark: Message         | :ballot_box_with_check: Item             | :white_check_mark: Dimmer         |                                     |
+| :ballot_box_with_check: Icon       | :rocket: Pagination                | :ballot_box_with_check: Statistic        | :white_check_mark: Dropdown       |                                     |
+| :ballot_box_with_check: Image      | :ballot_box_with_check: Table      |                                          | :x: Embed                         |                                     |
+| :ballot_box_with_check: Input      |                                    |                                          | :white_check_mark: Modal          |                                     |
+| :ballot_box_with_check: Label      |                                    |                                          | :white_check_mark: Popup          |                                     |
+| :ballot_box_with_check: List       |                                    |                                          | :white_check_mark: Progress       |                                     |
+| :ballot_box_with_check: Loader     |                                    |                                          | :white_check_mark: Rating         |                                     |
+| :ballot_box_with_check: Rail       |                                    |                                          | :white_check_mark: Search         |                                     |
+| :ballot_box_with_check: Reveal     |                                    |                                          | :x: Shape                         |                                     |
+| :ballot_box_with_check: Segment    |                                    |                                          | :white_check_mark: Sidebar        |                                     |
+| :ballot_box_with_check: Step       |                                    |                                          | :x: Sticky                        |                                     |
+|                                    |                                    |                                          | :white_check_mark: Tab            |                                     |
+|                                    |                                    |                                          | :white_check_mark: Transition     |                                     |
+
+## Development
+
+To generate all library files:
+
+```bash
+$ npm run lib:compile
+# use lib:compile:w to watch for changes
+```
+
+To run the demo app:
+```bash
+$ npm run demo:serve
+```
+
+## Testing
+
+To run the unit tests suite:
+```bash
+$ npm run test
+```
+
+## Credits and License
+
+* MIT © [Edward Carroll](https://github.com/edcarroll)
