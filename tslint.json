@@ -50,7 +50,7 @@
     "no-switch-case-fall-through": true,
     "no-use-before-declare": true,
     "no-var-requires": false,
-    "object-literal-key-quotes": [
+    "object-lite  ral-key-quotes": [
       true,
       "as-needed"
     ],
@@ -59,6 +59,11 @@
     "quotemark": [
       true,
       "single"
+    ],
+    "variable-name": [
+      true,
+      "check-format",
+      "allow-leading-underscore"
     ],
     "trailing-comma": false,
     "no-output-on-prefix": true,
