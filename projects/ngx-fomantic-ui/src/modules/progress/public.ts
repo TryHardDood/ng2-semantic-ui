@@ -1,0 +1,3 @@
+export {
+  SuiProgressModule
+} from './internal';
