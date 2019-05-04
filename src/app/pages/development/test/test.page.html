@@ -7,10 +7,18 @@
 <demo-page-content>
     <h2 class="ui dividing header">Examples</h2>
     <div class="ui segment">
-        <button class="ui button" (click)="open()">open</button>
-        <button class="ui button" (click)="controller.dismissAll()">dismiss all</button>
-        <br>
-        <br>
-        <sui-message-container [controller]="controller"></sui-message-container>
+      <sui-toast [dismissible]="false">
+        <ng-template suiToastHeader><div class="header">Hello</div></ng-template>
+        <ng-template suiToastBody><div class="body">Toast body</div></ng-template>
+      </sui-toast>
+    </div>
+    <br/>
+    <h2 class="ui dividing header">Examples</h2>
+    <div class="ui segment">
+      <br/>
+      <button type="button" class="ui button" (click)="addToast()">Add toast</button>
+      <button type="button" class="ui button" (click)="addToast2()">Add toast</button>
+      <br/>
+      <sui-toast-container #toastContainer></sui-toast-container>
     </div>
 </demo-page-content>

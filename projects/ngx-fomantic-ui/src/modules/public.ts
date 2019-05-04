@@ -12,4 +12,5 @@ export * from './search/public';
 export * from './select/public';
 export * from './sidebar/public';
 export * from './tabs/public';
+export * from './toast/public';
 export * from './transition/public';

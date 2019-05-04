@@ -12,4 +12,5 @@ export * from './search/internal';
 export * from './select/internal';
 export * from './sidebar/internal';
 export * from './tabs/internal';
+export * from './toast/internal';
 export * from './transition/internal';

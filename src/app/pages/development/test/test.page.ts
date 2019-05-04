@@ -1,28 +1,32 @@
-import { Component } from '@angular/core';
-import { MessageController, SuiMessageService, MessagePosition, MessageConfig, MessageState } from 'ngx-fomantic-ui';
+import {Component, ViewChild} from '@angular/core';
+import {SuiToastContainer} from '../../../../../projects/ngx-fomantic-ui/src';
 
 @Component({
     selector: 'demo-page-test',
     templateUrl: './test.page.html'
 })
 export class TestPage {
-    public controller: MessageController;
 
-    constructor(private messageService: SuiMessageService) {
-        this.controller = new MessageController();
-        this.messageService.position = MessagePosition.BottomRight;
-        this.messageService.isNewestOnTop = true;
-    }
+  toastCounter = 0;
 
-    public open(): void {
-        const message = new MessageConfig(Date.now().toString(), MessageState.Default, 'Header');
-        message.hasProgress = true;
-        // this.controller.show(message);
-        // this._messageService.show(message);
-    }
+  @ViewChild('toastContainer')
+  toastContainer: SuiToastContainer;
 
-    public dismissAll(): void {
-        this.controller.dismissAll();
-        this.messageService.dismissAll();
-    }
+  addToast() {
+    this.toastContainer.addToast({
+      header: 'New notification',
+      body: `Hello this is notification #${++this.toastCounter}`,
+      type: 'warning',
+      showProgress: 'top'
+    });
+  }
+
+  addToast2() {
+    this.toastContainer.addToast({
+      header: 'New notification',
+      body: `Hello this is notification #${++this.toastCounter}`,
+      type: 'error',
+      showProgress: 'bottom'
+    });
+  }
 }
