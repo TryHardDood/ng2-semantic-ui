@@ -1,4 +1,4 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {SuiMessageModule, SuiPaginationModule} from './collections/internal';
 import {
   SuiAccordionModule,
@@ -22,9 +22,7 @@ import {SuiLocalizationModule} from './behaviors/internal';
 import {SuiUtilityModule} from './misc/internal';
 
 @NgModule({
-  imports: [
-    SuiToastModule.forRoot()
-  ],
+  imports: [],
   exports: [
     SuiMessageModule,
     SuiPaginationModule,

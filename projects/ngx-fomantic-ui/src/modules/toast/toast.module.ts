@@ -1,7 +1,9 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SuiToast, SuiToastBody, SuiToastContainer, SuiToastHeader} from './classes/toast';
-import {SuiToastConfig} from './classes/toast.config';
+import {SuiToast} from './classes/toast';
+import {SuiToastHeader} from './directives/toast-header';
+import {SuiToastContainer} from './classes/toast-container';
+import {SuiToastBody} from './directives/toast-body';
 
 @NgModule({
   imports: [
@@ -21,7 +23,4 @@ import {SuiToastConfig} from './classes/toast.config';
   ]
 })
 export class SuiToastModule {
-  static forRoot(): ModuleWithProviders {
-    return {ngModule: SuiToastModule, providers: [SuiToastConfig]};
-  }
 }

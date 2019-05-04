@@ -1,3 +1,1 @@
-export * from './classes/toast';
-
-export * from './toast.module';
+export {SuiToastModule} from './public';

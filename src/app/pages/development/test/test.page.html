@@ -8,8 +8,18 @@
     <h2 class="ui dividing header">Examples</h2>
     <div class="ui segment">
       <sui-toast [dismissible]="false">
-        <ng-template suiToastHeader><div class="header">Hello</div></ng-template>
-        <ng-template suiToastBody><div class="body">Toast body</div></ng-template>
+        <ng-template suiToastHeader>Hello</ng-template>
+        <ng-template suiToastBody>I will remain here and there's nothing you can do about it.</ng-template>
+      </sui-toast>
+
+      <sui-toast>
+        <ng-template suiToastHeader>Hello</ng-template>
+        <ng-template suiToastBody>Click on me to dismiss me.</ng-template>
+      </sui-toast>
+
+      <sui-toast [timeout]="10000" [dismissible]="false">
+        <ng-template suiToastHeader>Hello</ng-template>
+        <ng-template suiToastBody>I will automatically close myself after 10 seconds.</ng-template>
       </sui-toast>
     </div>
     <br/>
