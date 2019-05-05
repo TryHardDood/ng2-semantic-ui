@@ -11,5 +11,6 @@ export * from './rating/public';
 export * from './search/public';
 export * from './select/public';
 export * from './sidebar/public';
+export * from './slider/public';
 export * from './tabs/public';
 export * from './transition/public';

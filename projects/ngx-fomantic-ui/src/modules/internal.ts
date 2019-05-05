@@ -11,5 +11,6 @@ export * from './rating/internal';
 export * from './search/internal';
 export * from './select/internal';
 export * from './sidebar/internal';
+export * from './slider/internal';
 export * from './tabs/internal';
 export * from './transition/internal';

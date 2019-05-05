@@ -8,6 +8,7 @@
     "popper.js"
   ],
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "styleIncludePaths": ["src/lib/components", "src/lib/styles", "src/lib/assets"]
   }
 }

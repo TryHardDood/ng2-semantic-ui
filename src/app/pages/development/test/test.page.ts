@@ -1,28 +1,25 @@
-import { Component } from '@angular/core';
-import { MessageController, SuiMessageService, MessagePosition, MessageConfig, MessageState } from 'ngx-fomantic-ui';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'demo-page-test',
-    templateUrl: './test.page.html'
+  selector: 'demo-page-test',
+  templateUrl: './test.page.html'
 })
-export class TestPage {
-    public controller: MessageController;
+export class TestPage implements OnInit {
+  step: number;
+  min: number;
+  max: number;
+  value: number;
 
-    constructor(private messageService: SuiMessageService) {
-        this.controller = new MessageController();
-        this.messageService.position = MessagePosition.BottomRight;
-        this.messageService.isNewestOnTop = true;
-    }
+  event: any;
 
-    public open(): void {
-        const message = new MessageConfig(Date.now().toString(), MessageState.Default, 'Header');
-        message.hasProgress = true;
-        // this.controller.show(message);
-        // this._messageService.show(message);
-    }
+  constructor() {
+  }
 
-    public dismissAll(): void {
-        this.controller.dismissAll();
-        this.messageService.dismissAll();
-    }
+  ngOnInit(): void {
+    this.step = 5;
+    this.min = 10;
+    this.max = 200;
+
+    this.value = 85;
+  }
 }

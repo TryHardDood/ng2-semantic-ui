@@ -1,0 +1,3 @@
+export {
+  SuiSliderModule
+} from './internal';

@@ -1,16 +1,42 @@
 <demo-page-title>
-    <div header>Test</div>
-    <div sub-header>
-        <p>Test component!</p>
-    </div>
+  <div header>Test</div>
+  <div sub-header>
+    <p>Test component!</p>
+  </div>
 </demo-page-title>
 <demo-page-content>
-    <h2 class="ui dividing header">Examples</h2>
-    <div class="ui segment">
-        <button class="ui button" (click)="open()">open</button>
-        <button class="ui button" (click)="controller.dismissAll()">dismiss all</button>
-        <br>
-        <br>
-        <sui-message-container [controller]="controller"></sui-message-container>
+  <h2 class="ui dividing header">Examples</h2>
+  <div class="ui segment">
+
+    <div class="ui labeled input">
+      <div class="ui label">
+        Step
+      </div>
+      <input type="number" placeholder="Step" [(ngModel)]="step"/>
     </div>
+
+    <div class="ui labeled input">
+      <div class="ui label">
+        Min value
+      </div>
+      <input type="number" placeholder="Min" [(ngModel)]="min"/>
+    </div>
+
+    <div class="ui labeled input">
+      <div class="ui label">
+        Max value
+      </div>
+      <input type="number" placeholder="Max" [(ngModel)]="max"/>
+    </div>
+
+    <div class="ui labeled input">
+      <div class="ui label">
+        Current value
+      </div>
+      <input type="number" placeholder="Value" [(ngModel)]="value"/>
+    </div>
+
+    <sui-slider [showTicks]="true" [(ngModel)]="value" [step]="step" [min]="min" [max]="max"
+                (change)="event = $event"></sui-slider>
+  </div>
 </demo-page-content>

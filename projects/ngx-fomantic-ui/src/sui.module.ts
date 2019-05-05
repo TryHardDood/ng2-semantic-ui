@@ -14,6 +14,7 @@ import {
   SuiSearchModule,
   SuiSelectModule,
   SuiSidebarModule,
+  SuiSliderModule,
   SuiTabsModule,
   SuiTransitionModule
 } from './modules/internal';
@@ -38,6 +39,7 @@ import {SuiUtilityModule} from './misc/internal';
     SuiSearchModule,
     SuiSelectModule,
     SuiSidebarModule,
+    SuiSliderModule,
     SuiTabsModule,
     SuiTransitionModule,
 
