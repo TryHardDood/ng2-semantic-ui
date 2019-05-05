@@ -1,35 +1,36 @@
-import {Component, ContentChild, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {SuiToastHeader} from '../directives/toast-header';
-import {SuiToastBody} from '../directives/toast-body';
+import {Component, ContentChild, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {SuiToastTitle} from '../directives/toast-title';
+import {SuiToastMessage} from '../directives/toast-message';
 
 @Component({
   selector: 'sui-toast',
   exportAs: 'suiToast',
   template: `
-    <div class="toast-box compact" (click)="close()">
-      <div *ngIf="showProgress && showProgress === 'top'" class="ui attached active progress {{type}} {{showProgress}}">
-        <div class="bar" [ngStyle]="{'transition': 'width ' + (this.timeout / 1000)  + 's', 'width': progress + '%'}"
+    <div class="toast-box compact" (click)="(dismissible ? (!closeIcon ? close() : null) : null)">
+      <div *ngIf="showProgress && showProgress === 'top'" class="ui attached active progress {{class}} {{showProgress}}">
+        <div class="bar" [ngStyle]="{'transition': 'width ' + (displayTime / 1000)  + 's', 'width': progress + '%'}"
              style="width: 100%;"></div>
       </div>
-      <div class="icon {{type}} ui toast">
-        <i class="{{type}} icon"></i>
+      <div class="{{class}} {{className}}" [ngClass]="{'icon': showIcon}">
+        <i *ngIf="closeIcon" class="close icon" (click)="close()"></i>
+        <i *ngIf="showIcon" class="{{showIcon}} icon"></i>
         <div class="content">
-          <ng-container *ngIf="header">
-            <div class="header">{{header}}</div>
+          <ng-container *ngIf="title">
+            <div class="header">{{title}}</div>
           </ng-container>
-          <div class="header" *ngIf="headerTpl">
-            <ng-template [ngTemplateOutlet]="headerTpl.templateRef"></ng-template>
+          <div class="header" *ngIf="titleTpl">
+            <ng-template [ngTemplateOutlet]="titleTpl.templateRef"></ng-template>
           </div>
-          <ng-container *ngIf="body">
-            <div class="body">{{body}}</div>
+          <ng-container *ngIf="message">
+            <div class="body">{{message}}</div>
           </ng-container>
-          <div *ngIf="bodyTpl" class="body">
-            <ng-template [ngTemplateOutlet]="bodyTpl.templateRef"></ng-template>
+          <div *ngIf="messageTpl" class="body">
+            <ng-template [ngTemplateOutlet]="messageTpl.templateRef"></ng-template>
           </div>
         </div>
       </div>
-      <div *ngIf="showProgress && showProgress === 'bottom'" class="ui attached active progress {{type}} {{showProgress}}">
-        <div class="bar" [ngStyle]="{'transition': 'width ' + (this.timeout / 1000)  + 's', 'width': progress + '%'}"
+      <div *ngIf="showProgress && showProgress === 'bottom'" class="ui attached active progress {{class}} {{showProgress}}">
+        <div class="bar" [ngStyle]="{'transition': 'width ' + (displayTime / 1000)  + 's', 'width': progress + '%'}"
              style="width: 100%;"></div>
       </div>
     </div>
@@ -37,40 +38,67 @@ import {SuiToastBody} from '../directives/toast-body';
 })
 export class SuiToast implements OnInit {
   @Input() dismissible: boolean;
-  @Input() header: string;
-  @Input() body: string;
-  @Input() type: string;
+  @Input() title: string;
+  @Input() message: string;
+  @Input() class: string;
 
+  @Input() showIcon: any;
+  @Input() closeIcon: boolean;
+  @Input() className: any;
+
+  @Input() progressUp?: boolean;
   @Input() showProgress?: string;
-  @Input() timeout?: number;
+  @Input() displayTime?: number;
 
   @Input() id: number;
 
   @Output('close') closeEvent = new EventEmitter();
 
-  @ContentChild(SuiToastHeader) headerTpl: SuiToastHeader;
-  @ContentChild(SuiToastBody) bodyTpl: SuiToastBody;
+  @ContentChild(SuiToastTitle) titleTpl: SuiToastTitle;
+  @ContentChild(SuiToastMessage) messageTpl: SuiToastMessage;
 
   progress: number;
+  icons = {
+    info: 'info',
+    success: 'checkmark',
+    warning: 'warning',
+    error: 'times'
+  };
 
-  constructor() {
-    this.dismissible = true;
-    this.type = 'info';
+  constructor(private elementRef: ElementRef) {
   }
 
   ngOnInit(): void {
-    if (this.timeout) {
-      if (!this.showProgress) {
-        this.showProgress = 'bottom';
-      }
+    this.title = this.title || '';
+    this.message = this.message || '';
+    this.class = this.class || 'info';
 
-      this.progress = 0;
-      window.setTimeout(() => this.close(), this.timeout);
-      window.setTimeout(() => this.progress = 100, 300);
+    if (typeof this.showIcon !== 'string') {
+      if (this.showIcon === undefined || this.showIcon === null) {
+        this.showIcon = this.icons[this.class];
+      } else {
+        this.showIcon = false;
+      }
+    }
+
+    this.closeIcon = this.closeIcon || false;
+    this.className = this.className || 'ui toast';
+
+    this.progressUp = this.progressUp || true;
+    this.displayTime = this.displayTime || 0;
+
+    if (this.displayTime) {
+      window.setTimeout(() => this.close(), this.displayTime);
+
+      if (this.showProgress) {
+        this.progress = this.progressUp ? 0 : 100;
+        window.setTimeout(() => this.progress = this.progressUp ? 100 : 0, 300);
+      }
     }
   }
 
   close() {
+    this.elementRef.nativeElement.remove();
     this.closeEvent.next(this.id);
   }
 }

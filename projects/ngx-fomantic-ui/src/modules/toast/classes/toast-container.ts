@@ -7,11 +7,15 @@ import {SuiToastConfig} from './toast-config';
   template: `
     <sui-toast *ngFor="let toast of toastData"
                [id]="toast.id"
-               [header]="toast.header"
-               [body]="toast.body"
-               [type]="toast.type"
+               [title]="toast.title"
+               [message]="toast.message"
+               [class]="toast.class"
                [showProgress]="toast.showProgress"
-               [timeout]="toast.timeout"
+               [displayTime]="toast.displayTime"
+               [showIcon]="toast.showIcon"
+               [closeIcon]="toast.closeIcon"
+               [progressUp]="toast.progressUp"
+               [className]="toast.className"
                (close)="closeToast(toast.id)"></sui-toast>`
 })
 export class SuiToastContainer {
@@ -22,11 +26,11 @@ export class SuiToastContainer {
   addToast(data: SuiToastConfig) {
     data.id = data.id || ++this.maxId;
     data.showProgress = data.showProgress || 'bottom';
-    data.type = data.type || 'info';
-    data.timeout = data.timeout || 5000;
+    data.class = data.class || 'info';
+    data.displayTime = data.displayTime || 5000;
 
     this.toastData.unshift(data);
-    this.timeoutIds[data.id] = window.setTimeout(() => this.closeToast(data.id), data.timeout);
+    this.timeoutIds[data.id] = window.setTimeout(() => this.closeToast(data.id), data.displayTime);
   }
 
   closeToast(toastId: number) {

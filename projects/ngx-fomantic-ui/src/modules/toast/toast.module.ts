@@ -1,23 +1,23 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SuiToast} from './classes/toast';
-import {SuiToastHeader} from './directives/toast-header';
 import {SuiToastContainer} from './classes/toast-container';
-import {SuiToastBody} from './directives/toast-body';
+import {SuiToastTitle} from './directives/toast-title';
+import {SuiToastMessage} from './directives/toast-message';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    SuiToastBody,
-    SuiToastHeader,
+    SuiToastTitle,
+    SuiToastMessage,
     SuiToast,
     SuiToastContainer
   ],
   exports: [
-    SuiToastBody,
-    SuiToastHeader,
+    SuiToastTitle,
+    SuiToastMessage,
     SuiToast,
     SuiToastContainer
   ]

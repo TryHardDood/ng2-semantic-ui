@@ -1,7 +1,7 @@
 import {Directive, TemplateRef} from '@angular/core';
 
-@Directive({selector: 'ng-template[suiToastHeader]'})
-export class SuiToastHeader {
+@Directive({selector: 'ng-template[suiToastTitle]'})
+export class SuiToastTitle {
   constructor(public templateRef: TemplateRef<any>) {
   }
 }

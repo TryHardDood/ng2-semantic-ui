@@ -6,7 +6,6 @@ import {SuiToastContainer} from 'ngx-fomantic-ui';
     templateUrl: './test.page.html'
 })
 export class TestPage {
-
   toastCounter = 0;
 
   @ViewChild('toastContainer')
@@ -14,18 +13,18 @@ export class TestPage {
 
   addToast() {
     this.toastContainer.addToast({
-      header: 'New notification',
-      body: `Hello this is notification #${++this.toastCounter}`,
-      type: 'warning',
+      title: 'New notification',
+      message: `Hello this is notification #${++this.toastCounter}`,
+      class: 'warning',
       showProgress: 'top'
     });
   }
 
   addToast2() {
     this.toastContainer.addToast({
-      header: 'New notification',
-      body: `Hello this is notification #${++this.toastCounter}`,
-      type: 'error',
+      title: 'New notification',
+      message: `Hello this is notification #${++this.toastCounter}`,
+      class: 'error',
       showProgress: 'bottom'
     });
   }
