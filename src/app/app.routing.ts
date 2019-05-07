@@ -19,6 +19,7 @@ import { SearchPage } from './pages/modules/search/search.page';
 import { SelectPage } from './pages/modules/select/select.page';
 import { SidebarPage } from './pages/modules/sidebar/sidebar.page';
 import { TabsPage } from './pages/modules/tabs/tabs.page';
+import { ToastPage } from './pages/modules/toast/toast.page';
 import { TransitionPage } from './pages/modules/transition/transition.page';
 // Behaviors
 import { LocalizationPage } from './pages/behaviors/localization/localization.page';
@@ -97,6 +98,10 @@ const appRoutes: Routes = [
     {
         path: 'modules/tabs',
         component: TabsPage
+    },
+    {
+        path: 'modules/toast',
+        component: ToastPage
     },
     {
         path: 'modules/transition',

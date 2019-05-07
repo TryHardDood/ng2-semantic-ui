@@ -24,6 +24,7 @@ import { SearchPageComponents } from './modules/search/search.page';
 import { SelectPageComponents } from './modules/select/select.page';
 import { SidebarPageComponents } from './modules/sidebar/sidebar.page';
 import { TabsPageComponents } from './modules/tabs/tabs.page';
+import { ToastPageComponents } from './modules/toast/toast.page';
 import { TransitionPageComponents } from './modules/transition/transition.page';
 // Behaviors
 import { LocalizationPageComponents } from './behaviors/localization/localization.page';
@@ -61,6 +62,7 @@ import { TestPage } from './development/test/test.page';
         SelectPageComponents,
         SidebarPageComponents,
         TabsPageComponents,
+        ToastPageComponents,
         TransitionPageComponents,
 
         // Behaviors

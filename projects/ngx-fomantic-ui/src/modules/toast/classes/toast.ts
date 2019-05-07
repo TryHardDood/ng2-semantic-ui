@@ -66,9 +66,7 @@ export class SuiToast implements OnInit {
   };
 
   constructor(private elementRef: ElementRef) {
-  }
-
-  ngOnInit(): void {
+    this.dismissible = this.dismissible || true;
     this.title = this.title || '';
     this.message = this.message || '';
     this.class = this.class || 'info';
@@ -86,7 +84,9 @@ export class SuiToast implements OnInit {
 
     this.progressUp = this.progressUp || true;
     this.displayTime = this.displayTime || 0;
+  }
 
+  ngOnInit(): void {
     if (this.displayTime) {
       window.setTimeout(() => this.close(), this.displayTime);
 
